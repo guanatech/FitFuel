@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Modules\Auth\Fitfuel.Auth.API\Fitfuel.Auth.API.csproj" />
       <ProjectReference Include="..\..\Shared\Fitfuel.Shared\Fitfuel.Shared.csproj" />
     </ItemGroup>
 

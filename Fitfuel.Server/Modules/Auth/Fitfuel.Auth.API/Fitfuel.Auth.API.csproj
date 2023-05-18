@@ -6,4 +6,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="OpenIddict.AspNetCore" Version="4.3.0" />
+      <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="4.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Fitfuel.Auth.Infrastructure\Fitfuel.Auth.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>

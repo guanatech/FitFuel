@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Fitfuel.Shared.Database;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddSharedFramework(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddPostgres(configuration);
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
@@ -26,8 +28,11 @@ public static class DependencyInjection
         }
         
         app.UseHttpsRedirection();
-        app.UseAuthorization();
+        
         app.UseRouting();
+        
+        app.UseAuthentication();
+        app.UseAuthorization();
         
         return app;
     }
