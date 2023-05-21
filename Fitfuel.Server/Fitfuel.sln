@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitfuel.Auth.Shared", "Modu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitfuel.Auth.Infrastructure", "Modules\Auth\Fitfuel.Auth.Infrastructure\Fitfuel.Auth.Infrastructure.csproj", "{C2E771D5-1D9E-4EC2-84E8-77EF9E6F34FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitfuel.Auth.Application", "Modules\Auth\Fitfuel.Auth.Application\Fitfuel.Auth.Application.csproj", "{46934130-55F1-4A5A-8801-07415BE21FF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,10 @@ Global
 		{C2E771D5-1D9E-4EC2-84E8-77EF9E6F34FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2E771D5-1D9E-4EC2-84E8-77EF9E6F34FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2E771D5-1D9E-4EC2-84E8-77EF9E6F34FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46934130-55F1-4A5A-8801-07415BE21FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46934130-55F1-4A5A-8801-07415BE21FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46934130-55F1-4A5A-8801-07415BE21FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46934130-55F1-4A5A-8801-07415BE21FF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A0165582-2E3A-4748-88AC-5BCE2495ED37} = {0E805903-5784-47C8-9F39-8D3E8AE7F519}
@@ -129,5 +135,6 @@ Global
 		{610A79F9-9DEC-4B99-AA69-EB5A77C55D65} = {1B2A93BE-D60C-4A8D-A822-BE371AD3A1D4}
 		{966C3BD7-7AB9-4E0B-A1EB-A8DDBFBF0F29} = {1B2A93BE-D60C-4A8D-A822-BE371AD3A1D4}
 		{C2E771D5-1D9E-4EC2-84E8-77EF9E6F34FA} = {1B2A93BE-D60C-4A8D-A822-BE371AD3A1D4}
+		{46934130-55F1-4A5A-8801-07415BE21FF7} = {1B2A93BE-D60C-4A8D-A822-BE371AD3A1D4}
 	EndGlobalSection
 EndGlobal
