@@ -1,4 +1,4 @@
-namespace FitFuel.Workouts.Test;
+namespace FitFuel.Workouts.Tests;
 
 public class Tests
 {

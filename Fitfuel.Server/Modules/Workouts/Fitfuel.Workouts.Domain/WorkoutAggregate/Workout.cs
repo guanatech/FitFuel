@@ -5,7 +5,6 @@ namespace Fitfuel.Workouts.Domain.WorkoutAggregate;
 
 public class Workout : AggregateRoot<WorkoutId>
 {
-    
     public string Name { get; private set; }
     
     public DateTime Duration { get; private set; }

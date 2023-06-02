@@ -1,6 +1,12 @@
-﻿namespace Fitfuel.Workouts.API;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-public class DependencyInjection
+namespace Fitfuel.Workouts.API;
+
+public static class DependencyInjection
 {
-    
+    public static IServiceCollection AddWorkoutsModule(this IServiceCollection services, IConfiguration configuration)
+    {
+        return services;
+    }
 }

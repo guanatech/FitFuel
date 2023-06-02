@@ -58,7 +58,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitfuel.Workouts.Infrastruc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitfuel.Workouts.Shared", "Modules\Workouts\Fitfuel.Workouts.Shared\Fitfuel.Workouts.Shared.csproj", "{77F7C7BD-E1A5-4B7A-BA6D-E562143DAA97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFuel.Workouts.Test", "Modules\Workouts\FitFuel.Workouts.Test\FitFuel.Workouts.Test.csproj", "{5387706F-43C8-4330-9702-135D46DDD367}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFuel.Workouts.Tests", "Modules\Workouts\FitFuel.Workouts.Tests\FitFuel.Workouts.Tests.csproj", "{5387706F-43C8-4330-9702-135D46DDD367}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
