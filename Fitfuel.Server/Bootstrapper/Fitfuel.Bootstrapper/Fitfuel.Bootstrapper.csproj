@@ -21,6 +21,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Modules\Auth\Fitfuel.Auth.API\Fitfuel.Auth.API.csproj" />
+      <ProjectReference Include="..\..\Modules\Workouts\Fitfuel.Workouts.API\Fitfuel.Workouts.API.csproj" />
+      <ProjectReference Include="..\..\Modules\Workouts\Fitfuel.Workouts.Application\Fitfuel.Workouts.Application.csproj" />
+      <ProjectReference Include="..\..\Modules\Workouts\Fitfuel.Workouts.Domain\Fitfuel.Workouts.Domain.csproj" />
+      <ProjectReference Include="..\..\Modules\Workouts\Fitfuel.Workouts.Infrastructure\Fitfuel.Workouts.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Modules\Workouts\Fitfuel.Workouts.Shared\Fitfuel.Workouts.Shared.csproj" />
+      <ProjectReference Include="..\..\Modules\Workouts\FitFuel.Workouts.Test\FitFuel.Workouts.Test.csproj" />
       <ProjectReference Include="..\..\Shared\Fitfuel.Shared\Fitfuel.Shared.csproj" />
     </ItemGroup>
     

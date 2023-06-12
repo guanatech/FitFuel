@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Fitfuel.Shared.Database;
+namespace Fitfuel.Shared.Persistence.Database;
 
 public static class DependencyInjection
 {

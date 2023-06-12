@@ -1,4 +1,4 @@
-﻿namespace Fitfuel.Shared.Database;
+﻿namespace Fitfuel.Shared.Persistence.Database;
 
 internal sealed class PostgresOptions
 {
