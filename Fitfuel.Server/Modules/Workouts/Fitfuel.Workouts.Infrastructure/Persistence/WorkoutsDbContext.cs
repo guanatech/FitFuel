@@ -1,5 +1,5 @@
 ﻿using Fitfuel.Workouts.Domain.ExerciseAggregate;
-using Fitfuel.Workouts.Domain.WorkoutAggregate;
+using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 using Fitfuel.Workouts.Infrastructure.Persistence.EntityConfiguration;
 using Microsoft.EntityFrameworkCore;
 

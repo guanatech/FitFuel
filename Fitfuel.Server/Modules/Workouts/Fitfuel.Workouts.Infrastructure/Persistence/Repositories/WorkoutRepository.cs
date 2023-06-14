@@ -1,10 +1,9 @@
 ﻿using Fitfuel.Shared.Persistence.Specifications;
-using Fitfuel.Workouts.Application.Interfaces.Persistence;
-using Fitfuel.Workouts.Domain.WorkoutAggregate;
+using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 
 namespace Fitfuel.Workouts.Infrastructure.Persistence.Repositories;
 
-public class WorkoutRepository : IWorkoutRepository
+public class WorkoutRepository
 {
     private readonly WorkoutsDbContext _dbContext;
     public WorkoutRepository(WorkoutsDbContext dbContext) =>

@@ -1,4 +1,4 @@
-﻿using Fitfuel.Workouts.Domain.WorkoutAggregate;
+﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

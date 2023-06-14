@@ -1,4 +1,4 @@
-﻿using Fitfuel.Workouts.Domain.WorkoutAggregate;
+﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -24,10 +24,5 @@ public class WorkoutEntityConfiguration : IEntityTypeConfiguration<Workout>
         builder.Property(o => o.Description)
             .HasColumnName("Description")
             .HasMaxLength(255);
-        
-        builder.HasMany(o => o.Exercises)
-            .WithOne(o => o.Workout)
-            .HasForeignKey(o => o.WorkoutId)
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }
