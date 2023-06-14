@@ -1,15 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Fitfuel.Workouts.Domain.ExerciseAggregate;
+using Fitfuel.Workouts.Domain.WorkoutAggregate;
+using Fitfuel.Workouts.Infrastructure.Persistence.EntityConfiguration;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fitfuel.Workouts.Infrastructure.Persistence;
 
 public class WorkoutsDbContext : DbContext
 {
-    public WorkoutsDbContext(DbContextOptions<WorkoutsDbContext> options): base(options) {}
+    private DbSet<Workout> Workouts { get; set; } = null!;
+
+    private DbSet<Exercise> Exercises { get; set; } = null!;
     
+    public WorkoutsDbContext(DbContextOptions<WorkoutsDbContext> options) : base(options) { }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    { 
-        base.OnModelCreating(modelBuilder);
+    {
         modelBuilder.HasDefaultSchema("workouts");
-        // configure models
+        modelBuilder.ApplyConfiguration(new WorkoutEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new ExerciseEntityConfiguration());
+        base.OnModelCreating(modelBuilder);
     }
 }
+
