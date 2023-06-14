@@ -7,11 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces\" />
-      <Folder Include="Services\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Fitfuel.Workouts.Domain\Fitfuel.Workouts.Domain.csproj" />
       <ProjectReference Include="..\Fitfuel.Workouts.Shared\Fitfuel.Workouts.Shared.csproj" />
     </ItemGroup>
