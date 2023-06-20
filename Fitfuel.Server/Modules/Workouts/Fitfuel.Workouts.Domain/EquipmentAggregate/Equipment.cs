@@ -1,7 +1,8 @@
 ﻿using Fitfuel.Shared.Entities;
-using Fitfuel.Workouts.Domain.ExerciseAggregate.ValueObjects;
+using Fitfuel.Workouts.Domain.EquipmentAggregate.ValueObjects;
+using Fitfuel.Workouts.Domain.ExerciseAggregate;
 
-namespace Fitfuel.Workouts.Domain.ExerciseAggregate.Entities;
+namespace Fitfuel.Workouts.Domain.EquipmentAggregate;
 
 public class Equipment : AggregateRoot<EquipmentId>
 {

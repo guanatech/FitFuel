@@ -1,6 +1,6 @@
 ﻿using Fitfuel.Shared.Entities;
 
-namespace Fitfuel.Workouts.Domain.ExerciseAggregate.ValueObjects;
+namespace Fitfuel.Workouts.Domain.EquipmentAggregate.ValueObjects;
 
 public class EquipmentId : ValueObject
 {

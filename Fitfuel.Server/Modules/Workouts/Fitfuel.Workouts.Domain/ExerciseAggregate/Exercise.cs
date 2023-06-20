@@ -1,5 +1,6 @@
 ﻿using Fitfuel.Shared.Entities;
-using Fitfuel.Workouts.Domain.ExerciseAggregate.Entities;
+using Fitfuel.Workouts.Domain.EquipmentAggregate;
+using Fitfuel.Workouts.Domain.EquipmentAggregate.ValueObjects;
 using Fitfuel.Workouts.Domain.ExerciseAggregate.Enums;
 using Fitfuel.Workouts.Domain.ExerciseAggregate.ValueObjects;
 
