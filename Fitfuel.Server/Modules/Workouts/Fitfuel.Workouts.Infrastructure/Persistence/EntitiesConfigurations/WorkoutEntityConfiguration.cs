@@ -1,4 +1,5 @@
 ﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
+using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,6 +9,17 @@ public class WorkoutEntityConfiguration : IEntityTypeConfiguration<Workout>
 {
     public void Configure(EntityTypeBuilder<Workout> builder)
     {
-        //configure
+        builder.ToTable("Workouts");
+        
+        builder.HasKey(x => x.Id);
+
+        builder.HasOne(x => x.WorkoutPlan)
+            .WithMany(x => x.Workouts)
+            .HasForeignKey(x => x.WorkoutPlanId);
+
+        builder.Property(x => x.Id)
+            .HasColumnName("Id")
+            .HasConversion(x => x.Value,
+                x => new WorkoutId(x));
     }
 }

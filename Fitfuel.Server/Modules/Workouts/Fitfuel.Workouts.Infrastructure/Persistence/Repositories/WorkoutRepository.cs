@@ -1,4 +1,4 @@
-﻿using Fitfuel.Shared.Persistence.Specifications;
+﻿
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 
 namespace Fitfuel.Workouts.Infrastructure.Persistence.Repositories;
@@ -8,12 +8,7 @@ public class WorkoutRepository
     private readonly WorkoutsDbContext _dbContext;
     public WorkoutRepository(WorkoutsDbContext dbContext) =>
         _dbContext = dbContext;
-
-    public IQueryable<Workout> ApplySpecification(
-        BaseSpecification<Workout> specification) =>
-        SpecificationEvaluator.GetQuery(
-            _dbContext.Set<Workout>(),
-            specification);
+    
 
     /*public async Task<User?> GetByLoginAsync(string login) =>
         await _dbContext.Users.SingleOrDefaultAsync(u => u.Name == login);

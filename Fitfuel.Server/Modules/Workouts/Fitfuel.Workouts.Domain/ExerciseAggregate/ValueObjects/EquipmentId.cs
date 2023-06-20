@@ -2,14 +2,14 @@
 
 namespace Fitfuel.Workouts.Domain.ExerciseAggregate.ValueObjects;
 
-public class ExerciseId : ValueObject
+public class EquipmentId : ValueObject
 {
     public Guid Value { get;}
 
-    public ExerciseId(Guid value) => 
+    public EquipmentId(Guid value) => 
         Value = value;
     
-    public static ExerciseId CreateUnique() => new(Guid.NewGuid());
+    public static EquipmentId CreateUnique() => new(Guid.NewGuid());
     
     protected override IEnumerable<object?> GetAtomicValues()
     {

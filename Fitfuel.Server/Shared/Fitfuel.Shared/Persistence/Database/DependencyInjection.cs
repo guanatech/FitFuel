@@ -10,11 +10,11 @@ public static class DependencyInjection
         
     internal static IServiceCollection AddPostgres(this IServiceCollection services, IConfiguration configuration)
     {
-        //services.Configure<PostgresOptions>(configuration.GetConnectionString());
-        //services.AddHostedService<DbContextAppInitializer>();
+        services.Configure<PostgresOptions>(configuration.GetSection(SectionName));
+        services.AddHostedService<DbContextAppInitializer>();
                         
         // Temporary fix for EF Core issue related to https://github.com/npgsql/efcore.pg/issues/2000
-        //AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         
 
         return services;
