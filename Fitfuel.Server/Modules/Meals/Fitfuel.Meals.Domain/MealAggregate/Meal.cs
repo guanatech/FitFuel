@@ -6,7 +6,8 @@ namespace Fitfuel.Meals.Domain.MealAggregate;
 
 public class Meal : AggregateRoot<MealId>
 {
-    private Meal(MealId id, string name, int calories, TimeSpan cookingTime, Category category, string recipe) 
+    private Meal(MealId id, string name, int calories, TimeSpan cookingTime, 
+        Category category, string recipe, string? imageUrl) 
         : base(id)
     {
         Name = name;
@@ -14,6 +15,7 @@ public class Meal : AggregateRoot<MealId>
         CookingTime = cookingTime;
         Category = category;
         Recipe = recipe;
+        ImageUrl = imageUrl;
     }
     
     public string Name { get; private set; }
@@ -26,6 +28,9 @@ public class Meal : AggregateRoot<MealId>
     
     public string Recipe { get; private set; }
 
-    public static Meal Create(string name, int calories, TimeSpan cookingTime, Category category, string recipe) =>
-        new(MealId.CreateUnique(), name, calories, cookingTime, category, recipe);
+    public string? ImageUrl { get; private set; }
+
+    public static Meal Create(string name, int calories, TimeSpan cookingTime, 
+        Category category, string recipe, string? imageUrl) =>
+        new(MealId.CreateUnique(), name, calories, cookingTime, category, recipe, imageUrl);
 }
