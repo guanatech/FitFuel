@@ -6,7 +6,7 @@ public class ExerciseId : ValueObject
 {
     public Guid Value { get;}
 
-    private ExerciseId(Guid value) => 
+    public ExerciseId(Guid value) => 
         Value = value;
     
     public static ExerciseId CreateUnique() => new(Guid.NewGuid());

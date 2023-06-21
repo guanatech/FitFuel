@@ -5,9 +5,9 @@ using Fitfuel.Workouts.API;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .AddAuthModule(builder.Configuration)
     .AddWorkoutsModule(builder.Configuration)
     .AddSharedFramework(builder.Configuration);
+    //.AddAuthModule(builder.Configuration)
 
 var app = builder.Build();
 {

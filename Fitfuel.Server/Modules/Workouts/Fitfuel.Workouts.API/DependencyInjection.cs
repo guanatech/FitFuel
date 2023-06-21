@@ -1,4 +1,5 @@
-﻿using Fitfuel.Workouts.Infrastructure.Persistence;
+﻿using Fitfuel.Shared.Persistence.Database;
+using Fitfuel.Workouts.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,8 +10,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddWorkoutsModule(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<WorkoutsDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("PgSqlConnection")));
+        services.AddPostgres<WorkoutsDbContext>();
         
         return services;
     }
