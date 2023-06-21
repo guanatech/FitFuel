@@ -11,6 +11,8 @@ public class MealId: ValueObject
     
     public static MealId CreateUnique() => new(Guid.NewGuid());
     
+    public static MealId Create(Guid value) => new(value);
+    
     protected override IEnumerable<object?> GetAtomicValues()
     {
         yield return Value;
