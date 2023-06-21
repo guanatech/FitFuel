@@ -22,7 +22,7 @@ public static class DependencyInjection
         IConfiguration configuration)
     {
         
-        services.AddScoped(typeof(EfRepository<>));
+        services.AddScoped(typeof(WorkoutsRepository<>));
         return services;
     }
 }

@@ -3,7 +3,7 @@
 namespace Fitfuel.Workouts.Application.Interfaces;
 
 /// <inheritdoc/>
-/// Our base repo, dont change it, but you can create a custom repo if required 
+/// Our base repo, dont change it, but you can create a custom repo if required
 public interface IRepository<T> : IRepositoryBase<T> where T : class
 {
 }
