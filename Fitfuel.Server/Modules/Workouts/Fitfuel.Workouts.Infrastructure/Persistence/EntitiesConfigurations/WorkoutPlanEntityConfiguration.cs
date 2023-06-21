@@ -19,7 +19,7 @@ public class WorkoutPlanEntityConfiguration : IEntityTypeConfiguration<WorkoutPl
                 x => new WorkoutPlanId(x));
         
         builder.Property(x => x.Name)
-            .HasMaxLength(50)
+            .HasMaxLength(120)
             .IsRequired();
     }
 }
