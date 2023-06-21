@@ -16,7 +16,6 @@ public static class DependencyInjection
         // Temporary fix for EF Core issue related to https://github.com/npgsql/efcore.pg/issues/2000
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         
-
         return services;
     }
 

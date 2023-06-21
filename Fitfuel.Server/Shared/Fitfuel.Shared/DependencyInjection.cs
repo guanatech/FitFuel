@@ -15,7 +15,8 @@ public static class DependencyInjection
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-
+        
+        // Add base repos
         return services;
     }
 
