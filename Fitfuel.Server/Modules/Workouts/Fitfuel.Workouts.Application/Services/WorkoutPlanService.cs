@@ -1,4 +1,4 @@
-﻿using Fitfuel.Shared.Persistence.Interfaces;
+﻿using Fitfuel.Workouts.Application.Interfaces;
 using Fitfuel.Workouts.Application.Specifications;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
