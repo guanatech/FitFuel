@@ -18,6 +18,10 @@ public class EquipmentEntityConfiguration : IEntityTypeConfiguration<Equipment>
             .HasColumnName("Id")
             .HasConversion(x => x.Value,
                 x => new EquipmentId(x));
-        
+
+        builder.Property(x => x.Name)
+            .HasMaxLength(50)
+            .IsRequired();
+
     }
 }

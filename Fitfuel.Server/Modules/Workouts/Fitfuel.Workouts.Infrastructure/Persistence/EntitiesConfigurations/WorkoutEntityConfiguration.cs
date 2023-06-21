@@ -21,5 +21,9 @@ public class WorkoutEntityConfiguration : IEntityTypeConfiguration<Workout>
             .HasColumnName("Id")
             .HasConversion(x => x.Value,
                 x => new WorkoutId(x));
+        
+        builder.Property(x => x.Name)
+            .HasMaxLength(50)
+            .IsRequired();
     }
 }

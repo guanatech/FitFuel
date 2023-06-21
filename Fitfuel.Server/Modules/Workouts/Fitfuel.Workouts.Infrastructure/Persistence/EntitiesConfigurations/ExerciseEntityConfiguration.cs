@@ -22,6 +22,14 @@ public class ExerciseEntityConfiguration : IEntityTypeConfiguration<Exercise>
             .WithMany(x => x.Exercises)
             .HasForeignKey(x => x.EquipmentId);
 
+        builder.Property(x => x.Name)
+            .HasMaxLength(50)
+            .IsRequired();
+
+        builder.Property(x => x.Description)
+            .HasMaxLength(120)
+            .IsRequired();
+
 
     }
 }
