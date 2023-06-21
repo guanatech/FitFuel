@@ -1,4 +1,6 @@
 ﻿using Fitfuel.Shared.Persistence.Database;
+using Fitfuel.Shared.Persistence.Interfaces;
+using Fitfuel.Shared.Persistence.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +17,10 @@ public static class DependencyInjection
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        
+        // Add base repos
+        services.AddScoped(typeof(IReadRepository<>), typeof(CachedRepository<>));
+        services.AddScoped(typeof(DbRepository<>));
 
         return services;
     }

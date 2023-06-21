@@ -1,6 +1,5 @@
 ﻿using Fitfuel.Workouts.Application.Interfaces;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
-using Fitfuel.Workouts.Infrastructure.Persistence.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,8 +20,6 @@ public static class DependencyInjection
     private static IServiceCollection AddPersistence(this IServiceCollection services, 
         IConfiguration configuration)
     {
-        // Add Repositories
-        services.AddScoped(typeof(IRepository<>), typeof(WorkoutDbRepository<>));
         return services;
     }
 }
