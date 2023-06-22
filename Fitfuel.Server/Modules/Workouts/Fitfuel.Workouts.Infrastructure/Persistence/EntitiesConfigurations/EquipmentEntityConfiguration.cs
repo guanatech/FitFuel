@@ -20,7 +20,7 @@ public class EquipmentEntityConfiguration : IEntityTypeConfiguration<Equipment>
                 x => new EquipmentId(x));
 
         builder.Property(x => x.Name)
-            .HasMaxLength(120)
+            .HasMaxLength(70)
             .IsRequired();
 
     }

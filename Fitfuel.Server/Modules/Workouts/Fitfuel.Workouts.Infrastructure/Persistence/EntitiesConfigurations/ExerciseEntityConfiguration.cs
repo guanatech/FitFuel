@@ -23,11 +23,11 @@ public class ExerciseEntityConfiguration : IEntityTypeConfiguration<Exercise>
             .HasForeignKey(x => x.EquipmentId);
 
         builder.Property(x => x.Name)
-            .HasMaxLength(120)
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.Description)
-            .HasMaxLength(120)
+            .HasMaxLength(240)
             .IsRequired();
 
 
