@@ -1,5 +1,5 @@
 ﻿using Fitfuel.Meals.Infrastructure.Persistence;
-using Fitfuel.Shared.Persistence.Database;
+using Fitfuel.Shared.Infrastructure.Persistence.Database;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Fitfuel.Meals.Infrastructure;

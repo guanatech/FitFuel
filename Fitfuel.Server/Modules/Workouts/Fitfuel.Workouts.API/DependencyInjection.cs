@@ -1,4 +1,4 @@
-﻿using Fitfuel.Shared.Persistence.Database;
+﻿using Fitfuel.Shared.Infrastructure.Persistence.Database;
 using Fitfuel.Workouts.Application;
 using Fitfuel.Workouts.Infrastructure;
 using Fitfuel.Workouts.Infrastructure.Persistence;

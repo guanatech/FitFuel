@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Fitfuel.Shared.Persistence.Database;
+namespace Fitfuel.Shared.Infrastructure.Persistence.Database;
 
 internal sealed class DbContextAppInitializer : IHostedService
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
-namespace Fitfuel.Shared.Persistence.Database;
+namespace Fitfuel.Shared.Infrastructure.Persistence.Database;
 
 public class PostgresOptionsSetup : IConfigureOptions<PostgresOptions>
 {

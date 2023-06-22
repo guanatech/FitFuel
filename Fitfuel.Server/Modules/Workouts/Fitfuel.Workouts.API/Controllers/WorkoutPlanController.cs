@@ -1,4 +1,4 @@
-﻿using Fitfuel.Workouts.API.Models;
+﻿using Fitfuel.Workouts.API.Dtos;
 using Fitfuel.Workouts.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

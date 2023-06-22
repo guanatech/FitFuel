@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Text.Json.Serialization;
 
-namespace Fitfuel.Workouts.API.Models;
+namespace Fitfuel.Workouts.API.Dtos;
 
 public class BaseFilterDto
 {

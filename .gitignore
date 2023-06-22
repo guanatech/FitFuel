@@ -264,3 +264,4 @@ FakesAssemblies/
 
 # Custom files and directories
 .idea/
+Fitfuel.Server/Bootstrapper/Fitfuel.Bootstrapper/Logs

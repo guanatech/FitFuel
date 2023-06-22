@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Fitfuel.Shared.Presentation;
+namespace Fitfuel.Shared;
 
 public class SwaggerOptionsSetup : IConfigureOptions<SwaggerGenOptions>
 {

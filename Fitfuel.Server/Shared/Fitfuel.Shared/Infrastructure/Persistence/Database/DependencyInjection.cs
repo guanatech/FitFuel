@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace Fitfuel.Shared.Persistence.Database;
+namespace Fitfuel.Shared.Infrastructure.Persistence.Database;
 
 public static class DependencyInjection
 {
@@ -30,7 +30,7 @@ public static class DependencyInjection
             });
             optionsBuilder.EnableDetailedErrors(databaseOptions.EnableDetailedErrors);
             
-            // this mode in only dev
+            // This mode in only development
             optionsBuilder.EnableSensitiveDataLogging(databaseOptions.EnableSensitiveDataLogging);
         });
         

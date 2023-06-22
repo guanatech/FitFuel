@@ -1,4 +1,4 @@
-﻿namespace Fitfuel.Shared.Persistence.Specifications.Filters;
+﻿namespace Fitfuel.Shared.Infrastructure.Persistence.Specifications.Filters;
 
 public class BaseFilter
 {

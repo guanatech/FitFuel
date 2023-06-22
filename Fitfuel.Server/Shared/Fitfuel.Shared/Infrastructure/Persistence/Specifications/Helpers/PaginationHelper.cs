@@ -1,6 +1,6 @@
-﻿using Fitfuel.Shared.Persistence.Specifications.Filters;
+﻿using Fitfuel.Shared.Infrastructure.Persistence.Specifications.Filters;
 
-namespace Fitfuel.Shared.Persistence.Specifications.Helpers;
+namespace Fitfuel.Shared.Infrastructure.Persistence.Specifications.Helpers;
 
 public static class PaginationHelper
 {
