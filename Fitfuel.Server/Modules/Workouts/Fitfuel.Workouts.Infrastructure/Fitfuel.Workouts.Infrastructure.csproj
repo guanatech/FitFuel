@@ -10,8 +10,4 @@
       <ProjectReference Include="..\Fitfuel.Workouts.Application\Fitfuel.Workouts.Application.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Persistence\EntityConfiguration\" />
-    </ItemGroup>
-
 </Project>
