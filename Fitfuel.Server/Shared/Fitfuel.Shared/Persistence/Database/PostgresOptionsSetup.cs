@@ -15,7 +15,7 @@ public class PostgresOptionsSetup : IConfigureOptions<PostgresOptions>
 
     public void Configure(PostgresOptions options)
     {
-        var connectionString = _configuration[$"{PostgresSectionName}:{nameof(PostgresOptions.ConnectionString)}"];
+        var connectionString = _configuration[$"{PostgresSectionName}:{nameof(PostgresOptions.ConnectionString)}"]; 
 
         options.ConnectionString = connectionString;
         
