@@ -1,4 +1,5 @@
 ﻿using Fitfuel.Shared.Persistence.Database;
+using Fitfuel.Shared.Presentation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +15,9 @@ public static class DependencyInjection
         services.AddPostgres(configuration);
         services.AddControllers();
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+
+        services.AddSharedPresentation();
+        
         
         // Add base repos
         return services;

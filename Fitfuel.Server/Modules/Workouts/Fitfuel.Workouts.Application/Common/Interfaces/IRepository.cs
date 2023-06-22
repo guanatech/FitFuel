@@ -1,6 +1,6 @@
 ﻿using Ardalis.Specification;
 
-namespace Fitfuel.Workouts.Application.Interfaces;
+namespace Fitfuel.Workouts.Application.Common.Interfaces;
 
 /// <inheritdoc/>
 /// Our base repo, dont change it, but you can create a custom repo if required

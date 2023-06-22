@@ -7,12 +7,9 @@ namespace Fitfuel.Shared.Persistence.Database;
 
 public static class DependencyInjection
 {
-    private const string SectionName = "Postgres";
-        
     internal static IServiceCollection AddPostgres(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddHostedService<DbContextAppInitializer>();
-                        
         // Temporary fix for EF Core issue related to https://github.com/npgsql/efcore.pg/issues/2000
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         
@@ -23,20 +20,20 @@ public static class DependencyInjection
     {
         services.ConfigureOptions<PostgresOptionsSetup>();
         var databaseOptions = services.BuildServiceProvider().GetRequiredService<IOptions<PostgresOptions>>()!.Value;
-        services.AddDbContext<T>(x =>
+        services.AddDbContext<T>(optionsBuilder =>
         {
-            x.UseNpgsql(databaseOptions.ConnectionString, npSqlServerAction =>
+            optionsBuilder.UseNpgsql(databaseOptions.ConnectionString, npSqlServerAction =>
             {
                 npSqlServerAction.EnableRetryOnFailure(databaseOptions.MaxRetryCount);
 
                 npSqlServerAction.CommandTimeout(databaseOptions.CommandTimeOut);
             });
-            x.EnableDetailedErrors(databaseOptions.EnableDetailedErrors);
+            optionsBuilder.EnableDetailedErrors(databaseOptions.EnableDetailedErrors);
+            
             // this mode in only dev
-            x.EnableSensitiveDataLogging(databaseOptions.EnableSensitiveDataLogging);
+            optionsBuilder.EnableSensitiveDataLogging(databaseOptions.EnableSensitiveDataLogging);
         });
         
-          
         return services;
     }
 }
