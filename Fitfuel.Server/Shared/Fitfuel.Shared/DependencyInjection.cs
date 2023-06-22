@@ -29,6 +29,7 @@ public static class DependencyInjection
 
     private static void AddSwagger(this IServiceCollection services)
     {
+        services.ConfigureOptions<SwaggerOptionsSetup>();
         services.AddSwaggerGen(c =>
         {
             var securityScheme = new OpenApiSecurityScheme
