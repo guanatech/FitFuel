@@ -1,10 +1,10 @@
 ﻿using Fitfuel.Workouts.API.Models;
-using Fitfuel.Workouts.Application.Interfaces;
+using Fitfuel.Workouts.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fitfuel.Workouts.API.Controllers;
 
-[Route("workouts")]
+[Route("api/v{version:apiVersion}/plans")]
 public class WorkoutPlanController : ApiController
 {
     private readonly IWorkoutPlanService _service;

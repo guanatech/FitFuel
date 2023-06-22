@@ -1,11 +1,11 @@
-﻿using Fitfuel.Workouts.Application.Interfaces;
+﻿using Fitfuel.Workouts.Application.Common.Interfaces;
 using Fitfuel.Workouts.Application.Specifications;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 
 namespace Fitfuel.Workouts.Application.Services;
 
-public class WorkoutPlanService 
+public class WorkoutPlanService : IWorkoutPlanService
 {
     //TODO logger
     

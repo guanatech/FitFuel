@@ -1,7 +1,6 @@
 ﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
-using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 
-namespace Fitfuel.Workouts.Application.Interfaces;
+namespace Fitfuel.Workouts.Application.Common.Interfaces;
 
 public interface IWorkoutPlanService
 {

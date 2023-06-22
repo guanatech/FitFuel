@@ -6,6 +6,7 @@ namespace Fitfuel.Shared.Persistence.Database;
 public class PostgresOptionsSetup : IConfigureOptions<PostgresOptions>
 {
     private const string ConfigurationSectionName = "DatabaseOptions";
+    private const string PostgresSectionName = "Postgres";
 
     private readonly IConfiguration _configuration;
 
@@ -14,7 +15,7 @@ public class PostgresOptionsSetup : IConfigureOptions<PostgresOptions>
 
     public void Configure(PostgresOptions options)
     {
-        var connectionString = _configuration[$"Postgres:{nameof(PostgresOptions.ConnectionString)}"];
+        var connectionString = _configuration[$"{PostgresSectionName}:{nameof(PostgresOptions.ConnectionString)}"];
 
         options.ConnectionString = connectionString;
         
