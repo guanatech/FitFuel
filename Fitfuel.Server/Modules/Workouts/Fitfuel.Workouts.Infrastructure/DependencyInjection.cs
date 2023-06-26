@@ -1,7 +1,4 @@
-﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
-using Fitfuel.Workouts.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Fitfuel.Workouts.Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Fitfuel.Workouts.Infrastructure;
