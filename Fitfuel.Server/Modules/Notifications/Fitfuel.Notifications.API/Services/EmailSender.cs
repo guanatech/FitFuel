@@ -27,7 +27,7 @@ internal sealed class EmailSender : IEmailSender
         if (!email.IsValidEmail())
             return Errors.EmailSender.EmailNotValid;
         
-        using var client = new SmtpClient(new ProtocolLogger(EmailOptions.SmtpLogFileName));
+        using var client = new SmtpClient(new ProtocolLogger(EmailOptions.SmtpLogFilePath));
         await client.ConnectAsync(_emailOptions.SmtpAddress, _emailOptions.SmtpPort, true);
         await client.AuthenticateAsync(_emailOptions.Email, _emailOptions.Password);
         
