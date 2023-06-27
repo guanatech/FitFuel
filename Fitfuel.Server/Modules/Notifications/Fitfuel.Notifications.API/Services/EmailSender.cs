@@ -22,40 +22,38 @@ internal sealed class EmailSender : IEmailSender
         _emailOptions = emailOptions.Value;
     }
 
-    public async Task<ErrorOr<Success>> SendAsync(string email, string receiver, string message)
+    public async Task<ErrorOr<Success>> SendAsync(string email, string subject, string message)
     {
         if (!email.IsValidEmail())
             return Errors.EmailSender.EmailNotValid;
-
-        var emailMessage = new MimeMessage();
-
-        var emailName = _emailOptions.EmailName;
-        var emailPassword = _emailOptions.Password;
-        var emailAddress = _emailOptions.Email;
         
-        emailMessage.From.Add(new MailboxAddress(emailName, emailAddress));
-        emailMessage.To.Add(new MailboxAddress("", email));
-        emailMessage.Subject = receiver;
-        emailMessage.Body = new TextPart(TextFormat.Html)
-        {
-            Text = message
-        };
-
-        using var client = new SmtpClient(new ProtocolLogger("smtp.log"));
+        using var client = new SmtpClient(new ProtocolLogger(EmailOptions.SmtpLogFileName));
         await client.ConnectAsync(_emailOptions.SmtpAddress, _emailOptions.SmtpPort, true);
-        await client.AuthenticateAsync(emailAddress, emailPassword);
+        await client.AuthenticateAsync(_emailOptions.Email, _emailOptions.Password);
+        
+        var emailMessage = new MimeMessage() 
+        { 
+            Subject = subject, 
+            Body = new TextPart(TextFormat.Html) 
+            {
+                Text = message
+            }
+        };
+        emailMessage.From.Add(new MailboxAddress(_emailOptions.EmailName, _emailOptions.Email));
+        emailMessage.To.Add(new MailboxAddress("", email));
+        
         try
         {
             await client.SendAsync(emailMessage);
         }
         catch (Exception)
         {
-            _logger.LogError("Sending a message: \'{Message}\' to: \'{Receiver}\' failed...", message, receiver);
+            _logger.LogError("Sending a message: \'{Message}\' to: \'{Email}\' failed...", message, email);
             return Errors.EmailSender.EmailNotFound;
         }
 
         await client.DisconnectAsync(true);
-        _logger.LogInformation("Sending an email to: \'{Receiver}\', message: \'{Message}\'...", receiver, message);
+        _logger.LogInformation("Sending an email to: \'{Email}\', message: \'{Message}\'...", email, message);
         return new Success();
     }
 }
