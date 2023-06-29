@@ -1,4 +1,5 @@
-﻿using Fitfuel.Shared.Infrastructure;
+﻿using Fitfuel.Shared.Events;
+using Fitfuel.Shared.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,7 @@ public static class DependencyInjection
         services.AddSwagger();
         services.AddApiVersioning();
         services.AddInfrastructure(configuration, host);
+        services.AddEvents();
 
         return services;
     }
@@ -80,6 +82,7 @@ public static class DependencyInjection
         }
 
         app.UseHttpsRedirection();
+        app.UseSerilogRequestLogging();
 
         app.UseRouting();
 
