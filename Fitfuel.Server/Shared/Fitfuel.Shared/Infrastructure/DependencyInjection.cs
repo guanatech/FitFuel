@@ -1,4 +1,6 @@
-﻿using Fitfuel.Shared.Infrastructure.Persistence.Database;
+﻿using Fitfuel.Shared.Infrastructure.Messaging;
+using Fitfuel.Shared.Infrastructure.Messaging.Interfaces;
+using Fitfuel.Shared.Infrastructure.Persistence.Database;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +15,7 @@ public static class DependencyInjection
     {
         services.AddPostgres(configuration);
         services.AddLogging(configuration, host);
+        services.AddMessaging();
         
         return services;
     }
@@ -25,5 +28,13 @@ public static class DependencyInjection
             .CreateLogger();
 
         host.UseSerilog(logger);
+    }
+    
+    private static void AddMessaging(this IServiceCollection services)
+    {
+        services.AddTransient<IMessageBroker, InMemoryMessageBroker>();
+        services.AddTransient<IAsyncEventDispatcher, AsyncEventDispatcher>();
+        services.AddSingleton<IEventChannel, EventChannel>();
+        services.AddHostedService<EventDispatcherJob>();
     }
 }
