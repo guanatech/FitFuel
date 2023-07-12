@@ -32,8 +32,6 @@ internal sealed class DbContextAppInitializer : IHostedService
             }
 
             _logger.LogInformation($"Running DB context: {dbContext.GetType().Name}");
-            await dbContext.Database.EnsureCreatedAsync(cancellationToken);
-            await dbContext.Database.EnsureCreatedAsync(cancellationToken);
             await dbContext.Database.MigrateAsync(cancellationToken);
         }
     }
