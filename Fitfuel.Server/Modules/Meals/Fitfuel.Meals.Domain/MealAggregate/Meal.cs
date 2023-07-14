@@ -1,12 +1,11 @@
 ﻿using Fitfuel.Meals.Domain.MealAggregate.Enums;
-using Fitfuel.Meals.Domain.MealAggregate.ValueObjects;
 using Fitfuel.Shared.Entities;
 
 namespace Fitfuel.Meals.Domain.MealAggregate;
 
-public class Meal : AggregateRoot<MealId>
+public class Meal : AggregateRoot
 {
-    private Meal(MealId id, string name, int calories, TimeSpan cookingTime, 
+    private Meal(Guid id, string name, int calories, TimeSpan cookingTime, 
         Category category, string recipe, double fats, double proteins, double carbs, string? imageUrl) 
         : base(id)
     {
@@ -41,5 +40,5 @@ public class Meal : AggregateRoot<MealId>
 
     public static Meal Create(string name, int calories, TimeSpan cookingTime, 
         Category category, string recipe, double fats, double proteins, double carbs, string? imageUrl) =>
-        new(MealId.CreateUnique(), name, calories, cookingTime, category, recipe, fats, proteins, carbs, imageUrl);
+        new(Guid.NewGuid(), name, calories, cookingTime, category, recipe, fats, proteins, carbs, imageUrl);
 }

@@ -1,5 +1,4 @@
 ﻿using Fitfuel.Workouts.Domain.ExerciseAggregate;
-using Fitfuel.Workouts.Domain.ExerciseAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -11,26 +10,32 @@ public class ExerciseEntityConfiguration : IEntityTypeConfiguration<Exercise>
     {
         builder.ToTable("Exercises");
 
-        builder.HasKey(e => e.Id);
+        builder.HasKey(x => x.Id);
 
-        builder.Property(o => o.Id)
-            .HasColumnName("Id")
-            .HasConversion(x => x.Value, 
-                x => new ExerciseId(x));
-
-        builder.HasOne(x => x.Equipment)
+        builder.Property(x => x.Id)
+            .HasColumnName("Id");
+        
+        builder.Property(x => x.WorkoutId).IsRequired();
+        
+        builder
+            .HasOne(x => x.Workout)
+            .WithMany(x => x.Exercises)
+            .HasForeignKey(x => x.WorkoutId);
+        
+        builder
+            .HasOne(x => x.Equipment)
             .WithMany(x => x.Exercises)
             .HasForeignKey(x => x.EquipmentId);
 
-        builder.Property(x => x.Name)
-            .HasMaxLength(100)
-            .IsRequired();
+        builder.Property(x => x.Name).HasMaxLength(120).IsRequired();
+        
+        builder.Property(x => x.Description).HasMaxLength(240).IsRequired();
 
-        builder.Property(x => x.Description)
-            .HasMaxLength(240)
-            .IsRequired();
-
+        builder.Property(x => x.Duration).IsRequired();
+        
+        builder.Property(x => x.ExerciseType).IsRequired();
+        
+        builder.Property(x => x.Repetition).IsRequired();
 
     }
 }
-

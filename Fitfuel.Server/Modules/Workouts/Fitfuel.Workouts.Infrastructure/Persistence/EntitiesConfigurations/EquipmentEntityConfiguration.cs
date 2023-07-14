@@ -1,5 +1,4 @@
 ﻿using Fitfuel.Workouts.Domain.EquipmentAggregate;
-using Fitfuel.Workouts.Domain.EquipmentAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,12 +14,9 @@ public class EquipmentEntityConfiguration : IEntityTypeConfiguration<Equipment>
 
         builder.Property(x => x.Id)
             .HasColumnName("Id")
-            .HasConversion(x => x.Value,
-                x => new EquipmentId(x));
-
-        builder.Property(x => x.Name)
-            .HasMaxLength(70)
             .IsRequired();
+        
+        builder.Property(x => x.Name).HasMaxLength(70).IsRequired();
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using Fitfuel.Workouts.Infrastructure.Persistence;
+﻿using Fitfuel.Workouts.Application.Abstractions;
+using Fitfuel.Workouts.Application.Abstractions.Persistence;
+using Fitfuel.Workouts.Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Fitfuel.Workouts.Infrastructure;
@@ -16,7 +18,7 @@ public static class DependencyInjection
     private static IServiceCollection AddPersistence(this IServiceCollection services)
     {
         
-        services.AddScoped(typeof(WorkoutsRepository<>));
+        services.AddScoped(typeof(IRepository<>),typeof(WorkoutsRepository<>));
         return services;
     }
 }

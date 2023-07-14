@@ -8,7 +8,7 @@ public sealed class WorkoutPlanWithItemsSpecification :
     Specification<WorkoutPlan>, 
     ISingleResultSpecification<WorkoutPlan>
 {
-    public WorkoutPlanWithItemsSpecification(WorkoutPlanId id)
+    public WorkoutPlanWithItemsSpecification(Guid id)
     {
         Query
             .Where(w => w.Id == id)

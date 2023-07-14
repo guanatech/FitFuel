@@ -1,6 +1,5 @@
 ﻿using Fitfuel.Meals.Domain.MealAggregate;
 using Fitfuel.Meals.Domain.MealAggregate.Enums;
-using Fitfuel.Meals.Domain.MealAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -16,9 +15,6 @@ public class MealEntityConfiguration : IEntityTypeConfiguration<Meal>
         
         builder.Property(meal => meal.Id)
             .ValueGeneratedNever()
-            .HasConversion(
-                id => id.Value,
-                value => MealId.Create(value))
             .IsRequired();
 
         builder.Property(meal => meal.Calories).IsRequired();

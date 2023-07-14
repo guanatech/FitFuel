@@ -1,5 +1,7 @@
-﻿using Fitfuel.Shared.Events;
+﻿using System.Reflection;
 using Fitfuel.Shared.Infrastructure;
+using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Serilog;
 
 namespace Fitfuel.Shared;
 
@@ -20,11 +21,11 @@ public static class DependencyInjection
     {
         services.AddControllers();
         services.AddEndpointsApiExplorer();
-
+        
+        services.AddMappings();
         services.AddSwagger();
         services.AddApiVersioning();
         services.AddInfrastructure(configuration, host);
-        services.AddEvents();
 
         return services;
     }
@@ -73,6 +74,16 @@ public static class DependencyInjection
         });
     }
     
+    private static IServiceCollection AddMappings(this IServiceCollection services)
+    {
+        var config = TypeAdapterConfig.GlobalSettings;
+        config.Scan(Assembly.GetExecutingAssembly());
+
+        services.AddSingleton(config);
+        services.AddScoped<IMapper, ServiceMapper>();
+        return services;
+    }
+    
     public static IApplicationBuilder UseSharedFramework(this IApplicationBuilder app, IWebHostEnvironment environment)
     {
         if (environment.IsDevelopment())
@@ -82,7 +93,6 @@ public static class DependencyInjection
         }
 
         app.UseHttpsRedirection();
-        app.UseSerilogRequestLogging();
 
         app.UseRouting();
 

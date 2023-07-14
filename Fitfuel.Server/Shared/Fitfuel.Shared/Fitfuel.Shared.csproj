@@ -8,6 +8,10 @@
       <PackageReference Include="Ardalis.Specification" Version="7.0.0" />
       <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="7.0.0" />
       <PackageReference Include="ErrorOr" Version="1.2.1" />
+      <PackageReference Include="Mapster" Version="7.4.0-pre06" />
+      <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1-pre02" />
+      <PackageReference Include="MassTransit" Version="8.1.0-develop.1419" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.1.0-develop.1419" />
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />

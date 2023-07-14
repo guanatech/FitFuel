@@ -1,5 +1,6 @@
 ﻿using Ardalis.Specification.EntityFrameworkCore;
-using Fitfuel.Workouts.Application.Common.Interfaces;
+using Fitfuel.Workouts.Application.Abstractions;
+using Fitfuel.Workouts.Application.Abstractions.Persistence;
 
 namespace Fitfuel.Workouts.Infrastructure.Persistence;
 
