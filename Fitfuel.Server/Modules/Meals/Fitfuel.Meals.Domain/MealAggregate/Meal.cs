@@ -1,11 +1,25 @@
 ﻿using Fitfuel.Meals.Domain.MealAggregate.Enums;
-using Fitfuel.Meals.Domain.MealAggregate.ValueObjects;
 using Fitfuel.Shared.Entities;
 
 namespace Fitfuel.Meals.Domain.MealAggregate;
 
 public class Meal : AggregateRoot
 {
+    private Meal(Guid id, string name, int calories, TimeSpan cookingTime, 
+        Category category, string recipe, double fats, double proteins, double carbs, string? imageUrl) 
+        : base(id)
+    {
+        Name = name;
+        Calories = calories;
+        CookingTime = cookingTime;
+        Category = category;
+        Recipe = recipe;
+        ImageUrl = imageUrl;
+        Fats = fats;
+        Proteins = proteins;
+        Carbs = carbs;
+    }
+    
     public string Name { get; private set; }
 
     public int Calories { get; private set; }
@@ -23,22 +37,7 @@ public class Meal : AggregateRoot
     public string Recipe { get; private set; }
 
     public string? ImageUrl { get; private set; }
-    
-    private Meal(Guid id, string name, int calories, TimeSpan cookingTime, 
-        Category category, string recipe, double fats, double proteins, double carbs, string? imageUrl) 
-        : base(id)
-    {
-        Name = name;
-        Calories = calories;
-        CookingTime = cookingTime;
-        Category = category;
-        Recipe = recipe;
-        ImageUrl = imageUrl;
-        Fats = fats;
-        Proteins = proteins;
-        Carbs = carbs;
-    }
-    
+
     public static Meal Create(string name, int calories, TimeSpan cookingTime, 
         Category category, string recipe, double fats, double proteins, double carbs, string? imageUrl) =>
         new(Guid.NewGuid(), name, calories, cookingTime, category, recipe, fats, proteins, carbs, imageUrl);

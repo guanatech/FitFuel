@@ -1,5 +1,6 @@
 ﻿using ErrorOr;
-using Fitfuel.Workouts.API.Common.Constants;
+using Fitfuel.Workouts.API.Constants;
+using MapsterMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -9,6 +10,15 @@ namespace Fitfuel.Workouts.API.Controllers;
 [ApiController]
 public class ApiController : ControllerBase
 {
+    
+
+    protected readonly IMapper Mapper;
+
+    protected ApiController(IMapper mapper)
+    {
+        Mapper = mapper;
+    }
+
     protected IActionResult Problem(List<Error> errors)
     {
         if (errors.Count == 0)

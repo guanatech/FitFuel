@@ -1,5 +1,4 @@
 ﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
-using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,15 +12,23 @@ public class WorkoutEntityConfiguration : IEntityTypeConfiguration<Workout>
         
         builder.HasKey(x => x.Id);
 
+        builder.Property(x => x.Id)
+            .HasColumnName("Id");
+
+        builder.Property(x => x.WorkoutPlanId).IsRequired();
+
         builder.HasOne(x => x.WorkoutPlan)
             .WithMany(x => x.Workouts)
             .HasForeignKey(x => x.WorkoutPlanId);
 
-        builder.Property(x => x.Id)
-            .HasColumnName("Id");
-        
         builder.Property(x => x.Name)
             .HasMaxLength(100)
             .IsRequired();
+        
+        builder.Property(x => x.Description).HasMaxLength(240).IsRequired();
+
+        builder.Property(x => x.IsCompleted).IsRequired();
+        
+        builder.Property(x => x.StartDate).IsRequired();
     }
 }

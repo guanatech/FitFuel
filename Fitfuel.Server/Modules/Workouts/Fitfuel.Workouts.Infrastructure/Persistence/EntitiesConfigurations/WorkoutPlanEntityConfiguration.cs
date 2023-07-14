@@ -1,5 +1,4 @@
 ﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
-using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,9 +14,11 @@ public class WorkoutPlanEntityConfiguration : IEntityTypeConfiguration<WorkoutPl
 
         builder.Property(x => x.Id)
             .HasColumnName("Id");
-        
+
         builder.Property(x => x.Name)
             .HasMaxLength(100)
             .IsRequired();
+
+        builder.Property(x => x.Level).IsRequired();
     }
 }

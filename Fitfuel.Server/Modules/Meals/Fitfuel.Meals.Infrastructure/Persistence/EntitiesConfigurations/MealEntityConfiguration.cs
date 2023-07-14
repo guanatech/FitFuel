@@ -1,6 +1,5 @@
 ﻿using Fitfuel.Meals.Domain.MealAggregate;
 using Fitfuel.Meals.Domain.MealAggregate.Enums;
-using Fitfuel.Meals.Domain.MealAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

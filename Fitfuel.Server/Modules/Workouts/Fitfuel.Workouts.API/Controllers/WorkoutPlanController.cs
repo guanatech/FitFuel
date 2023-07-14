@@ -1,5 +1,6 @@
-﻿using Fitfuel.Workouts.API.Dtos;
-using Fitfuel.Workouts.Application.Common.Interfaces;
+﻿using Fitfuel.Workouts.Application.Abstractions;
+using FitFuel.Workouts.Contracts.WorkoutPlans;
+using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fitfuel.Workouts.API.Controllers;
@@ -7,33 +8,56 @@ namespace Fitfuel.Workouts.API.Controllers;
 [Route("api/v{version:apiVersion}/plans")]
 public class WorkoutPlanController : ApiController
 {
-    private readonly IWorkoutPlanService _service;
+    private readonly IWorkoutPlanService _workoutPlanService;
 
-    public WorkoutPlanController(IWorkoutPlanService service)
+    public WorkoutPlanController(IWorkoutPlanService workoutPlanService, IMapper mapper) : base(mapper)
     {
-        _service = service;
+        _workoutPlanService = workoutPlanService;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(WorkoutPlanRequest request)
+    {
+        var workoutPlanResult = await _workoutPlanService.CreateAsync(request);
+        return workoutPlanResult.Match(
+            value => Ok(value),
+            errors => Problem(errors));
     }
     
+    [HttpPut]
+    public async Task<IActionResult> Update(UpdateWorkoutPlanRequest request)
+    {
+        var workoutPlanResult = await _workoutPlanService.UpdateAsync(request);
+        return workoutPlanResult.Match(
+            value => Ok(Mapper.Map<WorkoutPlanResponse>(workoutPlanResult)),
+            errors => Problem(errors));
+    }
+    
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var workoutPlanResult = await _workoutPlanService.DeleteAsync(id);
+        return workoutPlanResult.Match(
+            value => Ok(value),
+            errors => Problem(errors));
+    }
     
     [HttpGet("{id:guid}")]
-    public async Task<WorkoutPlanDto> Get(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
-        var workoutPlan =  await _service.GetWorkoutPlanAsync(id);
-        return new WorkoutPlanDto(workoutPlan.Id);
+        var workoutPlanResult =  await _workoutPlanService.GetByIdAsync(id);
+        return workoutPlanResult.Match(
+            value => Ok(Mapper.Map<WorkoutPlanResponse>(workoutPlanResult)),
+            errors => Problem(errors));
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> Get([FromQuery] WorkoutPlanFilterRequest filter)
+    {
+        filter = filter ?? new WorkoutPlanFilterRequest();
+        var workoutPlans = await _workoutPlanService.GetByFiltersAsync(filter);
+        return Ok(workoutPlans);
     }
     
     
-    // Example of using filter dto 
-    /*[HttpGet]
-    public Task<List<WorkoutPlanDto>> Get([FromQuery] WorkoutPlanFilterDto filter)
-    {
-        filter = filter ?? new WorkoutPlanFilterDto();
-
-        // Here you can decide if you want the collections as well
-
-        filter.LoadChildren = true;
-        filter.IsPagingEnabled = true;
-
-        return _service.GetWorkoutPlanAsync(filter);
-    }*/
 }
