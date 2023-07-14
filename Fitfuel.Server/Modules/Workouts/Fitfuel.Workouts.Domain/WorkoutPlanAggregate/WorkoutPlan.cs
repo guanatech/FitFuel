@@ -5,9 +5,9 @@ using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 
 namespace Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
 
-public class WorkoutPlan : AggregateRoot<WorkoutPlanId>
+public class WorkoutPlan : AggregateRoot
 {
-    private WorkoutPlan(WorkoutPlanId id, string name, Level level) : base(id)
+    private WorkoutPlan(Guid id, string name, Level level) : base(id)
     {
         Name = name;
         Level = level;
@@ -21,7 +21,7 @@ public class WorkoutPlan : AggregateRoot<WorkoutPlanId>
     
     public IReadOnlyList<Workout> Workouts => _workouts;
 
-    public static WorkoutPlan Create(string name, Level level) => new(WorkoutPlanId.CreateUnique(), name, level);
+    public static WorkoutPlan Create(string name, Level level) => new(Guid.NewGuid(), name, level);
 
     public void AddWorkout(Workout workout) => _workouts.Add(workout);
 }

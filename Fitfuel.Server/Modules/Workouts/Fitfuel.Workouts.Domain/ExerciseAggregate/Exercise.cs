@@ -6,10 +6,10 @@ using Fitfuel.Workouts.Domain.ExerciseAggregate.ValueObjects;
 
 namespace Fitfuel.Workouts.Domain.ExerciseAggregate;
 
-public class Exercise : AggregateRoot<ExerciseId>
+public class Exercise : AggregateRoot
 {
     private Exercise(
-        ExerciseId id, string name, string description, DateTime duration, ExerciseType exerciseType, int repetition)
+        Guid id, string name, string description, DateTime duration, ExerciseType exerciseType, int repetition)
         : base(id)
     {
         Name = name;
@@ -33,6 +33,6 @@ public class Exercise : AggregateRoot<ExerciseId>
     public Equipment? Equipment { get; set; }
 
     public static Exercise Create(string name, string description, DateTime duration, ExerciseType exerciseType,
-        int repetition) => new(ExerciseId.CreateUnique(), name, description, duration, exerciseType, repetition);
+        int repetition) => new(Guid.NewGuid(), name, description, duration, exerciseType, repetition);
     
 }

@@ -18,9 +18,7 @@ public class WorkoutEntityConfiguration : IEntityTypeConfiguration<Workout>
             .HasForeignKey(x => x.WorkoutPlanId);
 
         builder.Property(x => x.Id)
-            .HasColumnName("Id")
-            .HasConversion(x => x.Value,
-                x => new WorkoutId(x));
+            .HasColumnName("Id");
         
         builder.Property(x => x.Name)
             .HasMaxLength(100)

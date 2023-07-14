@@ -14,9 +14,7 @@ public class WorkoutPlanEntityConfiguration : IEntityTypeConfiguration<WorkoutPl
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
-            .HasColumnName("Id")
-            .HasConversion(x => x.Value,
-                x => new WorkoutPlanId(x));
+            .HasColumnName("Id");
         
         builder.Property(x => x.Name)
             .HasMaxLength(100)

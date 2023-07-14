@@ -3,9 +3,9 @@ using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 
 namespace Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 
-public class Workout : Entity<WorkoutId>
+public class Workout : Entity
 {
-    private Workout(WorkoutId id, string name, WorkoutPlanId workoutPlanId, DateTime duration, 
+    private Workout(Guid id, string name, Guid workoutPlanId, DateTime duration, 
         DateTime startDate, string description) : base(id)
     {
         Name = name;
@@ -17,7 +17,7 @@ public class Workout : Entity<WorkoutId>
     
     public string Name { get; private set; }
 
-    public WorkoutPlanId WorkoutPlanId { get; init; }
+    public Guid WorkoutPlanId { get; init; }
     
     public DateTime Duration { get; private set; }
     
@@ -28,7 +28,7 @@ public class Workout : Entity<WorkoutId>
     public WorkoutPlan? WorkoutPlan { get; set; }
 
     public static Workout Create(
-        string name, WorkoutPlanId workoutPlanId, DateTime duration, 
+        string name, Guid workoutPlanId, DateTime duration, 
         DateTime startDate, string description) =>
-        new(WorkoutId.CreateUnique(), name, workoutPlanId, duration, startDate, description);
+        new(Guid.NewGuid(), name, workoutPlanId, duration, startDate, description);
 }

@@ -19,7 +19,7 @@ public class WorkoutPlanService : IWorkoutPlanService
     //TODO contract validation, exception handle
     public async Task<WorkoutPlan> GetWorkoutPlanAsync(Guid id)
     {
-        var workoutPlanSpec = new WorkoutPlanWithItemsSpecification(new WorkoutPlanId(id));
+        var workoutPlanSpec = new WorkoutPlanWithItemsSpecification(id);
         
         var workoutPlan = await _repository.FirstOrDefaultAsync(workoutPlanSpec);
         

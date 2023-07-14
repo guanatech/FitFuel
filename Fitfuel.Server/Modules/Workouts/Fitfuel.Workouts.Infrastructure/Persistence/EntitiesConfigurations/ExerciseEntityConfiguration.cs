@@ -14,9 +14,7 @@ public class ExerciseEntityConfiguration : IEntityTypeConfiguration<Exercise>
         builder.HasKey(e => e.Id);
 
         builder.Property(o => o.Id)
-            .HasColumnName("Id")
-            .HasConversion(x => x.Value, 
-                x => new ExerciseId(x));
+            .HasColumnName("Id");
 
         builder.HasOne(x => x.Equipment)
             .WithMany(x => x.Exercises)

@@ -14,9 +14,7 @@ public class EquipmentEntityConfiguration : IEntityTypeConfiguration<Equipment>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
-            .HasColumnName("Id")
-            .HasConversion(x => x.Value,
-                x => new EquipmentId(x));
+            .HasColumnName("Id");
 
         builder.Property(x => x.Name)
             .HasMaxLength(70)

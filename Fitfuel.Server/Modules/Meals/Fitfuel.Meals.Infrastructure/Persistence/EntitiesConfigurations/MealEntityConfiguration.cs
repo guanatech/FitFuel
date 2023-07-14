@@ -16,9 +16,6 @@ public class MealEntityConfiguration : IEntityTypeConfiguration<Meal>
         
         builder.Property(meal => meal.Id)
             .ValueGeneratedNever()
-            .HasConversion(
-                id => id.Value,
-                value => MealId.Create(value))
             .IsRequired();
 
         builder.Property(meal => meal.Calories).IsRequired();

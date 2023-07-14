@@ -4,7 +4,7 @@ using Fitfuel.Shared.Entities;
 
 namespace Fitfuel.Auth.Domain.UserAggregate;
 
-public class User : AggregateRoot<UserId>
+public class User : AggregateRoot
 {
     public string Username { get; private set; }
 
@@ -20,7 +20,7 @@ public class User : AggregateRoot<UserId>
 
     public DateTime UpdatedDate { get; private set; }
 
-    private User(UserId id, string username, string passwordHash, Role role, Email email,
+    private User(Guid id, string username, string passwordHash, Role role, Email email,
         string phoneNumber) : base(id)
     {
         Username = username;
@@ -33,5 +33,5 @@ public class User : AggregateRoot<UserId>
     }
 
     public static User Create(string username, string passwordHash, Role role, Email email, string phoneNumber) => 
-        new(UserId.CreateUnique(), username, passwordHash, role, email, phoneNumber);
+        new(Guid.NewGuid(), username, passwordHash, role, email, phoneNumber);
 }
