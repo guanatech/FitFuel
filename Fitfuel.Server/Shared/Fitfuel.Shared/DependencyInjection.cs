@@ -1,5 +1,8 @@
-﻿using Fitfuel.Shared.Events;
+﻿using System.Reflection;
+using Fitfuel.Shared.Events;
 using Fitfuel.Shared.Infrastructure;
+using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,6 +24,7 @@ public static class DependencyInjection
         services.AddControllers();
         services.AddEndpointsApiExplorer();
 
+        services.AddMappings();
         services.AddSwagger();
         services.AddApiVersioning();
         services.AddInfrastructure(configuration, host);
@@ -71,6 +75,16 @@ public static class DependencyInjection
             options.GroupNameFormat = "'v'VVV";
             options.SubstituteApiVersionInUrl = true;
         });
+    }
+    
+    private static IServiceCollection AddMappings(this IServiceCollection services)
+    {
+        var config = TypeAdapterConfig.GlobalSettings;
+        config.Scan(Assembly.GetExecutingAssembly());
+
+        services.AddSingleton(config);
+        services.AddScoped<IMapper, ServiceMapper>();
+        return services;
     }
     
     public static IApplicationBuilder UseSharedFramework(this IApplicationBuilder app, IWebHostEnvironment environment)

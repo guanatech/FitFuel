@@ -6,7 +6,7 @@ namespace Fitfuel.Meals.Application.Common.Interfaces;
 
 public interface IMealSchedulesService
 {
-    Task<ErrorOr<MealSchedule>> GetMealScheduleAsync(Guid id);
+    Task<ErrorOr<MealSchedule>> GetMealScheduleAsync(Guid profileId);
     
     Task<ErrorOr<MealSchedule>> SetMealScheduleAsync(CreateMealScheduleRequest request);
     Task<ErrorOr<MealSchedule>> UpdateMealScheduleAsync(UpdateMealScheduleRequest request);

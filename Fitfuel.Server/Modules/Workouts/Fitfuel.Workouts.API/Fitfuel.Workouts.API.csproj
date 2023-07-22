@@ -13,8 +13,4 @@
       <ProjectReference Include="..\Fitfuel.Workouts.Shared\Fitfuel.Workouts.Shared.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
-    </ItemGroup>
-
 </Project>

@@ -1,8 +1,9 @@
 ﻿using Fitfuel.Meals.Application.Common.Interfaces;
 using Fitfuel.Meals.Contracts.MealSchedules;
 using Fitfuel.Meals.Domain.MealScheduleAggregate;
-using ErrorOr;
 using Fitfuel.Meals.Domain.Common.Errors;
+using ErrorOr;
+using Fitfuel.Meals.Application.Specifications.MealSchedules;
 
 namespace Fitfuel.Meals.Application.Services;
 
@@ -15,23 +16,37 @@ public class MealSchedulesService : IMealSchedulesService
         _mealSchedulesRepository = mealSchedulesRepository;
     }
 
-    public async Task<ErrorOr<MealSchedule>> GetMealScheduleAsync(Guid id)
+    public async Task<ErrorOr<MealSchedule>> GetMealScheduleAsync(Guid profileId)
     {
-        var schedule = await _mealSchedulesRepository.GetByIdAsync(id);
-        
-        if(schedule is null)
+        var spec = new MealScheduleByProfileIdSpec(profileId);
+        if (await _mealSchedulesRepository.FirstOrDefaultAsync(spec) is not { } schedule)
             return Errors.MealSchedule.MealScheduleNotFound;
         
         return schedule;
     }
 
-    public Task<ErrorOr<MealSchedule>> SetMealScheduleAsync(CreateMealScheduleRequest request)
+    public async Task<ErrorOr<MealSchedule>> SetMealScheduleAsync(CreateMealScheduleRequest request)
     {
-        throw new NotImplementedException();
+        var spec = new MealScheduleByProfileIdSpec(request.ProfileId);
+        
+        if (await _mealSchedulesRepository.FirstOrDefaultAsync(spec) is not null)
+            return Errors.MealSchedule.MealScheduleAlreadyExist;
+        
+        var mealSchedule = MealSchedule.Create(request.BreakfastTime,
+            request.LunchTime, request.DinnerTime, request.ProfileId, request.IsNotified);
+
+        await _mealSchedulesRepository.AddAsync(mealSchedule);
+        return mealSchedule;
     }
 
-    public Task<ErrorOr<MealSchedule>> UpdateMealScheduleAsync(UpdateMealScheduleRequest request)
+    public async Task<ErrorOr<MealSchedule>> UpdateMealScheduleAsync(UpdateMealScheduleRequest request)
     {
-        throw new NotImplementedException();
+        var result = await GetMealScheduleAsync(request.Id);
+        if (result.IsError) return result.FirstError;
+        
+        var updatedSchedule = result.Value.Update(request.BreakfastTime, request.LunchTime, request.DinnerTime,
+            request.IsNotified);
+        
+        return updatedSchedule;
     }
 }

@@ -26,4 +26,15 @@ public class MealSchedule : AggregateRoot
 
     public static MealSchedule Create(string breakfastTime, string lunchTime, string dinnerTime, Guid profileId,
         bool isNotified) => new(Guid.NewGuid(), breakfastTime, lunchTime, dinnerTime, profileId, isNotified);
+
+    //TODO: add ChangeNotify method
+    public MealSchedule Update(string breakfastTime, string lunchTime, string dinnerTime, bool isNotified)
+    {
+        BreakfastTime = breakfastTime;
+        LunchTime = lunchTime;
+        DinnerTime = dinnerTime;
+        IsNotified = isNotified;
+
+        return this;
+    }
 }
