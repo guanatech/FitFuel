@@ -2,8 +2,8 @@
 
 public record UpdateMealScheduleRequest(
     Guid Id,
-    string BreakfastTime, 
-    string LunchTime, 
-    string DinnerTime,
+    TimeSpan BreakfastTime, 
+    TimeSpan LunchTime, 
+    TimeSpan DinnerTime,
     Guid ProfileId,
     bool IsNotified);

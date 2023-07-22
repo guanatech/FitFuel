@@ -1,8 +1,8 @@
 ﻿namespace Fitfuel.Meals.Contracts.MealSchedules;
 
 public record CreateMealScheduleRequest(
-    string BreakfastTime, 
-    string LunchTime, 
-    string DinnerTime,
+    TimeSpan BreakfastTime, 
+    TimeSpan LunchTime, 
+    TimeSpan DinnerTime,
     Guid ProfileId,
     bool IsNotified);

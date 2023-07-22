@@ -14,16 +14,8 @@ public class MealScheduleConfiguration : IEntityTypeConfiguration<MealSchedule>
 
         builder.Property(m => m.Id)
             .ValueGeneratedNever();
-
-        builder.Property(m => m.BreakfastTime).IsRequired()
-            .HasMaxLength(40);
         
-        builder.Property(m => m.LunchTime).IsRequired()
-            .HasMaxLength(40);
-        
-        builder.Property(m => m.DinnerTime).IsRequired()
-            .HasMaxLength(40);
-        
-        builder.Property(m => m.ProfileId);
+        builder.Property(m => m.ProfileId)
+            .IsRequired();
     }
 }

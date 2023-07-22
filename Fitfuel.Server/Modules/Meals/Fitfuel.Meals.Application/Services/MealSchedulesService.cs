@@ -41,7 +41,7 @@ public class MealSchedulesService : IMealSchedulesService
 
     public async Task<ErrorOr<MealSchedule>> UpdateMealScheduleAsync(UpdateMealScheduleRequest request)
     {
-        var result = await GetMealScheduleAsync(request.Id);
+        var result = await GetMealScheduleAsync(request.ProfileId);
         if (result.IsError) return result.FirstError;
         
         var updatedSchedule = result.Value.Update(request.BreakfastTime, request.LunchTime, request.DinnerTime,
