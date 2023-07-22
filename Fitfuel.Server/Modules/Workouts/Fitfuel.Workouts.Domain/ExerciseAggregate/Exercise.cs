@@ -2,7 +2,6 @@
 using Fitfuel.Workouts.Domain.EquipmentAggregate;
 using Fitfuel.Workouts.Domain.EquipmentAggregate.ValueObjects;
 using Fitfuel.Workouts.Domain.ExerciseAggregate.Enums;
-using Fitfuel.Workouts.Domain.ExerciseAggregate.ValueObjects;
 
 namespace Fitfuel.Workouts.Domain.ExerciseAggregate;
 

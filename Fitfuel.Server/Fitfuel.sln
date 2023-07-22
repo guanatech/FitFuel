@@ -68,6 +68,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitfuel.Notifications.Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitfuel.Meals.Application", "Modules\Meals\Fitfuel.Meals.Application\Fitfuel.Meals.Application.csproj", "{0707B918-21F8-4ABF-AD93-296704D6671D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitfuel.Meals.Contracts", "Modules\Meals\Fitfuel.Meals.Contracts\Fitfuel.Meals.Contracts.csproj", "{AD66C549-4C8D-4048-8EC3-2F484B7CBC40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -166,6 +168,10 @@ Global
 		{0707B918-21F8-4ABF-AD93-296704D6671D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0707B918-21F8-4ABF-AD93-296704D6671D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0707B918-21F8-4ABF-AD93-296704D6671D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD66C549-4C8D-4048-8EC3-2F484B7CBC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD66C549-4C8D-4048-8EC3-2F484B7CBC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD66C549-4C8D-4048-8EC3-2F484B7CBC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD66C549-4C8D-4048-8EC3-2F484B7CBC40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A0165582-2E3A-4748-88AC-5BCE2495ED37} = {0E805903-5784-47C8-9F39-8D3E8AE7F519}
@@ -199,5 +205,6 @@ Global
 		{25554955-29B9-4BBC-9FF6-EA40049A78D5} = {F6D3C2C6-E561-404D-9E87-690D7A69A622}
 		{CFF1017F-912D-476C-B12C-28E3EF965199} = {58BC99B7-1EA1-4712-AC93-3499A6814EE3}
 		{0707B918-21F8-4ABF-AD93-296704D6671D} = {F6D3C2C6-E561-404D-9E87-690D7A69A622}
+		{AD66C549-4C8D-4048-8EC3-2F484B7CBC40} = {F6D3C2C6-E561-404D-9E87-690D7A69A622}
 	EndGlobalSection
 EndGlobal

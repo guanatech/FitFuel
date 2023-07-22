@@ -1,5 +1,4 @@
 ﻿using Fitfuel.Workouts.Domain.ExerciseAggregate;
-using Fitfuel.Workouts.Domain.ExerciseAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

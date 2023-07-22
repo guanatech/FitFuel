@@ -1,5 +1,4 @@
 ﻿using Fitfuel.Shared.Entities;
-using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 
 namespace Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 

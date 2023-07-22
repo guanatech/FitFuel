@@ -1,6 +1,5 @@
 ﻿using Fitfuel.Meals.Domain.MealAggregate;
 using Fitfuel.Meals.Domain.MealAggregate.Enums;
-using Fitfuel.Meals.Domain.MealAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -22,10 +21,8 @@ public class MealEntityConfiguration : IEntityTypeConfiguration<Meal>
         builder.Property(meal => meal.Name).IsRequired().HasMaxLength(100);
         builder.Property(meal => meal.Recipe).IsRequired();
         builder.Property(meal => meal.CookingTime).IsRequired();
-        
-        builder.Property(meal => meal.Fats).IsRequired();
-        builder.Property(meal => meal.Proteins).IsRequired();
-        builder.Property(meal => meal.Carbs).IsRequired();
+
+        builder.OwnsOne(meal => meal.Nutrients);
         
         builder.Property(meal => meal.ImageUrl).IsRequired(false);
         

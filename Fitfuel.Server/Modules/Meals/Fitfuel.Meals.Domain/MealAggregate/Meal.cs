@@ -10,11 +10,7 @@ public class Meal : AggregateRoot
 
     public int Calories { get; private set; }
     
-    public double Fats { get; private set; }
-    
-    public double Proteins { get; private set; }
-    
-    public double Carbs { get; private set; }
+    public Nutrients Nutrients { get; private set; }
 
     public TimeSpan CookingTime { get; private set; }
     
@@ -25,7 +21,7 @@ public class Meal : AggregateRoot
     public string? ImageUrl { get; private set; }
     
     private Meal(Guid id, string name, int calories, TimeSpan cookingTime, 
-        Category category, string recipe, double fats, double proteins, double carbs, string? imageUrl) 
+        Category category, string recipe, Nutrients nutrients, string? imageUrl) 
         : base(id)
     {
         Name = name;
@@ -34,12 +30,10 @@ public class Meal : AggregateRoot
         Category = category;
         Recipe = recipe;
         ImageUrl = imageUrl;
-        Fats = fats;
-        Proteins = proteins;
-        Carbs = carbs;
+        Nutrients = nutrients;
     }
     
     public static Meal Create(string name, int calories, TimeSpan cookingTime, 
-        Category category, string recipe, double fats, double proteins, double carbs, string? imageUrl) =>
-        new(Guid.NewGuid(), name, calories, cookingTime, category, recipe, fats, proteins, carbs, imageUrl);
+        Category category, string recipe, Nutrients nutrients, string? imageUrl) =>
+        new(Guid.NewGuid(), name, calories, cookingTime, category, recipe, nutrients, imageUrl);
 }

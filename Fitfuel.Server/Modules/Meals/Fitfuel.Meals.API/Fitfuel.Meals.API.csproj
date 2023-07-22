@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Fitfuel.Meals.Application\Fitfuel.Meals.Application.csproj" />
+      <ProjectReference Include="..\Fitfuel.Meals.Contracts\Fitfuel.Meals.Contracts.csproj" />
       <ProjectReference Include="..\Fitfuel.Meals.Infrastructure\Fitfuel.Meals.Infrastructure.csproj" />
     </ItemGroup>
 

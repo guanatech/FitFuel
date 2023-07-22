@@ -6,4 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Fitfuel.Meals.Contracts\Fitfuel.Meals.Contracts.csproj" />
+      <ProjectReference Include="..\Fitfuel.Meals.Domain\Fitfuel.Meals.Domain.csproj" />
+      <ProjectReference Include="..\Fitfuel.Meals.Infrastructure\Fitfuel.Meals.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>

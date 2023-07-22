@@ -1,6 +1,5 @@
 ﻿using Ardalis.Specification;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
-using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.ValueObjects;
 
 namespace Fitfuel.Workouts.Application.Specifications;
 
