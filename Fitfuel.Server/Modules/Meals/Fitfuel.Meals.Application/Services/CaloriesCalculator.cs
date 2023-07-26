@@ -9,7 +9,7 @@ namespace Fitfuel.Meals.Application.Services;
 
 public class CaloriesCalculator : ICaloriesCalculator
 {
-    public ErrorOr<double> GetDailyCalorieCount(CalculateDailyCaloriesRequest request)
+    public ErrorOr<double> GetDailyCaloriesCount(CalculateDailyCaloriesRequest request)
     {
         var rateResult = GetPhysicalActivityRate(request.Rate);
         

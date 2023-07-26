@@ -6,7 +6,7 @@ namespace Fitfuel.Meals.Application.Common.Interfaces;
 
 public interface ICaloriesCalculator
 {
-    ErrorOr<double> GetDailyCalorieCount(CalculateDailyCaloriesRequest request);
+    ErrorOr<double> GetDailyCaloriesCount(CalculateDailyCaloriesRequest request);
 
     ErrorOr<Nutrients> GetDailyNutrientsCount(CalculateDailyNutrientsRequest request);
 }
