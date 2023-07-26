@@ -4,7 +4,6 @@ using Fitfuel.Workouts.Application.Abstractions;
 using Fitfuel.Workouts.Application.Abstractions.Persistence;
 using Fitfuel.Workouts.Application.Specifications.WorkoutPlans;
 using FitFuel.Workouts.Contracts.WorkoutPlans;
-using FitFuel.Workouts.Contracts.Workouts;
 using Fitfuel.Workouts.Domain.Common.Errors;
 using MapsterMapper;
 

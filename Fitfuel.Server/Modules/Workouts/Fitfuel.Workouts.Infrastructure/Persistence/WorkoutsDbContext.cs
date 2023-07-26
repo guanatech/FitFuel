@@ -3,8 +3,6 @@ using Fitfuel.Workouts.Domain.ExerciseAggregate;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Serilog;
 
 namespace Fitfuel.Workouts.Infrastructure.Persistence;
 

@@ -1,5 +1,4 @@
-﻿using FitFuel.Workouts.Contracts.Workouts;
-using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Enums;
+﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Enums;
 
 namespace FitFuel.Workouts.Contracts.WorkoutPlans;
 

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Fitfuel.Meals.Infrastructure.Persistence.EntitiesConfigurations;
 
-public class MealScheduleConfiguration : IEntityTypeConfiguration<MealSchedule>
+public class MealScheduleEntityConfiguration : IEntityTypeConfiguration<MealSchedule>
 {
     public void Configure(EntityTypeBuilder<MealSchedule> builder)
     {

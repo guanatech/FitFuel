@@ -1,5 +1,4 @@
-﻿using Fitfuel.Workouts.Application.Abstractions;
-using Fitfuel.Workouts.Application.Abstractions.Persistence;
+﻿using Fitfuel.Workouts.Application.Abstractions.Persistence;
 using Fitfuel.Workouts.Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 
