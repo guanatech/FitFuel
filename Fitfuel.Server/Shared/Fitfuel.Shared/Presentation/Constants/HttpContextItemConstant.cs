@@ -1,4 +1,4 @@
-﻿namespace Fitfuel.Workouts.API.Common.Constants;
+﻿namespace Fitfuel.Shared.Presentation.Constants;
 
 public static class HttpContextItemConstant
 { 

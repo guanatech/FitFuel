@@ -1,4 +1,5 @@
-﻿using Fitfuel.Workouts.Application.Abstractions;
+﻿using Fitfuel.Shared.Presentation;
+using Fitfuel.Workouts.Application.Abstractions;
 using FitFuel.Workouts.Contracts.Equipments;
 using MapsterMapper;
 
