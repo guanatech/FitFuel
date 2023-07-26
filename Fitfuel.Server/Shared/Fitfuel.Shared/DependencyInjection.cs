@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Fitfuel.Shared.Events;
 using Fitfuel.Shared.Infrastructure;
 using Mapster;
 using MapsterMapper;

@@ -1,6 +1,4 @@
-﻿using Fitfuel.Auth.Application.Services;
-using Fitfuel.Auth.Application.Services.Interfaces;
-using Fitfuel.Auth.Infrastructure.Persistence;
+﻿using Fitfuel.Auth.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -43,9 +41,7 @@ public static class DependencyInjection
                 };
             }
         );
-
-        services.AddScoped<IAuthService, AuthService>();
-
+        
         return services;
     }
 }

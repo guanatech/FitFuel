@@ -1,6 +1,5 @@
 ﻿using Fitfuel.Workouts.Application.Abstractions;
 using FitFuel.Workouts.Contracts.Equipments;
-using FitFuel.Workouts.Contracts.Exercises;
 using MapsterMapper;
 
 namespace Fitfuel.Workouts.API.Controllers;
