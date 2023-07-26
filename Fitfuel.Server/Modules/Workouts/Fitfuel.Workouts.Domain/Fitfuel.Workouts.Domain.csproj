@@ -10,4 +10,8 @@
       <ProjectReference Include="..\..\..\Shared\Fitfuel.Shared\Fitfuel.Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Common\" />
+    </ItemGroup>
+
 </Project>

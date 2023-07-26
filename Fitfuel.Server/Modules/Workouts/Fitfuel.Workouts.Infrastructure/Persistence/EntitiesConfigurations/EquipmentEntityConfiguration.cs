@@ -13,11 +13,10 @@ public class EquipmentEntityConfiguration : IEntityTypeConfiguration<Equipment>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
-            .HasColumnName("Id");
-
-        builder.Property(x => x.Name)
-            .HasMaxLength(70)
+            .HasColumnName("Id")
             .IsRequired();
+        
+        builder.Property(x => x.Name).HasMaxLength(70).IsRequired();
 
     }
 }

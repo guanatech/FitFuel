@@ -13,14 +13,26 @@ public class WorkoutPlan : AggregateRoot
     }
 
     private readonly List<Workout> _workouts = new();
-    
+
     public string Name { get; private set; }
 
     public Level Level { get; private set; }
-    
+
     public IReadOnlyList<Workout> Workouts => _workouts;
 
     public static WorkoutPlan Create(string name, Level level) => new(Guid.NewGuid(), name, level);
 
-    public void AddWorkout(Workout workout) => _workouts.Add(workout);
+    public WorkoutPlan Update(string name, Level level)
+    {
+        Name = name;
+        Level = level;
+
+        return this;
+    }
+
+    public void RemoveWorkout(Workout workout) =>
+        _workouts.Remove(workout);
+    
+    public void AddWorkout(Workout workout) =>
+        _workouts.Add(workout);
 }

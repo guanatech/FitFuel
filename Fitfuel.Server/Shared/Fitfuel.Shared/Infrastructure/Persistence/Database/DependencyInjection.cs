@@ -24,23 +24,23 @@ public static class DependencyInjection
         var databaseOptions = services.BuildServiceProvider().GetRequiredService<IOptions<PostgresOptions>>()!.Value;
         services.AddDbContext<T>(options =>
         {
-            options.UseNpgsql(databaseOptions.ConnectionString, npSqlServerAction => {
+            options.UseNpgsql(databaseOptions.ConnectionString, npSqlServerAction =>
+            {
                 npSqlServerAction.EnableRetryOnFailure(maxRetryCount: databaseOptions.MaxRetryCount);
                 npSqlServerAction.CommandTimeout(databaseOptions.CommandTimeOut);
             });
             options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            
+
             // TODO env if development
             options.EnableDetailedErrors(databaseOptions.EnableDetailedErrors); // to get field-level error details 
-            options.EnableSensitiveDataLogging(databaseOptions.EnableSensitiveDataLogging); // to get parameter values - do not in production!
-            options.ConfigureWarnings(warningAction => {
-                warningAction.Log(new EventId[] {
-                    CoreEventId.FirstWithoutOrderByAndFilterWarning,
-                    CoreEventId.RowLimitingOperationWithoutOrderByWarning
-                });
+            options.EnableSensitiveDataLogging(databaseOptions
+                .EnableSensitiveDataLogging); // to get parameter values - do not in production!
+            options.ConfigureWarnings(warningAction =>
+            {
+                warningAction.Log(CoreEventId.FirstWithoutOrderByAndFilterWarning, CoreEventId.RowLimitingOperationWithoutOrderByWarning);
             });
         });
-        
+
         return services;
     }
 }

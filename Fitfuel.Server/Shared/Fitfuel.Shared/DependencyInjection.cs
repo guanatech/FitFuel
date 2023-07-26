@@ -12,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Serilog;
 
 namespace Fitfuel.Shared;
 
@@ -28,7 +27,6 @@ public static class DependencyInjection
         services.AddSwagger();
         services.AddApiVersioning();
         services.AddInfrastructure(configuration, host);
-        services.AddEvents();
 
         return services;
     }
@@ -96,7 +94,6 @@ public static class DependencyInjection
         }
 
         app.UseHttpsRedirection();
-        app.UseSerilogRequestLogging();
 
         app.UseRouting();
 
