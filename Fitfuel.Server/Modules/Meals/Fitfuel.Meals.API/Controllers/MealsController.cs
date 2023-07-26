@@ -8,7 +8,6 @@ public class MealsController : Controller
 {
     public IActionResult Get()
     {
-        
         return Ok();
     }
 }
