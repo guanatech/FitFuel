@@ -1,5 +1,6 @@
 ﻿using Ardalis.Specification.EntityFrameworkCore;
 using Fitfuel.Meals.Application.Common.Interfaces;
+using Fitfuel.Shared.Infrastructure.Abstractions;
 
 namespace Fitfuel.Meals.Infrastructure.Persistence;
 
