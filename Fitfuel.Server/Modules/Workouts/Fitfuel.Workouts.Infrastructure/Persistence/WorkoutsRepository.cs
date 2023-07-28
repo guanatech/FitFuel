@@ -9,7 +9,7 @@ public class WorkoutsRepository<T> : RepositoryBase<T>, IRepository<T> where T :
 
     public WorkoutsRepository(WorkoutsDbContext dbContext) : base(dbContext)
     {
-        this._dbContext = dbContext;
+        _dbContext = dbContext;
     }
 
     // Not required to implement anything. Add additional functionalities if required.

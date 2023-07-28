@@ -14,8 +14,6 @@ public static class DependencyInjection
         services
             .AddApplication()
             .AddInfrastructure();
-        
-        services.AddPostgres<WorkoutsDbContext>();
 
         return services;
     }
