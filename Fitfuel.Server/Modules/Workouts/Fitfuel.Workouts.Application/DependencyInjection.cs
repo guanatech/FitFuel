@@ -1,4 +1,4 @@
-﻿using Fitfuel.Workouts.Application.Abstractions;
+﻿using Fitfuel.Workouts.Application.Common.Interfaces;
 using Fitfuel.Workouts.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 

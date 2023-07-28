@@ -1,8 +1,8 @@
-﻿using FitFuel.Workouts.Contracts.Equipments;
-using ErrorOr;
+﻿using ErrorOr;
+using FitFuel.Workouts.Contracts.Equipments;
 using Fitfuel.Workouts.Domain.EquipmentAggregate;
 
-namespace Fitfuel.Workouts.Application.Abstractions;
+namespace Fitfuel.Workouts.Application.Common.Interfaces;
 
 public interface IEquipmentService
 {

@@ -2,7 +2,7 @@
 using FitFuel.Workouts.Contracts.Exercises;
 using Fitfuel.Workouts.Domain.ExerciseAggregate;
 
-namespace Fitfuel.Workouts.Application.Abstractions;
+namespace Fitfuel.Workouts.Application.Common.Interfaces;
 
 public interface IExerciseService
 {

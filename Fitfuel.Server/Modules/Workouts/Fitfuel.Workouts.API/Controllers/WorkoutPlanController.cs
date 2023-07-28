@@ -1,5 +1,5 @@
 ﻿using Fitfuel.Shared.Presentation;
-using Fitfuel.Workouts.Application.Abstractions;
+using Fitfuel.Workouts.Application.Common.Interfaces;
 using FitFuel.Workouts.Contracts.WorkoutPlans;
 using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
