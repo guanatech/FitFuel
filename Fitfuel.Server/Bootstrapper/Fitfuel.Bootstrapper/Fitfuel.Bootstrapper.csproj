@@ -21,7 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Modules\Auth\Fitfuel.Auth.API\Fitfuel.Auth.API.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\Fitfuel.Notifications.API\Fitfuel.Notifications.API.csproj" />
       <ProjectReference Include="..\..\Modules\Workouts\Fitfuel.Workouts.API\Fitfuel.Workouts.API.csproj" />
     </ItemGroup>
