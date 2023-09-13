@@ -4,7 +4,7 @@ using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 using MapsterMapper;
 using ErrorOr;
 using Fitfuel.Shared.Infrastructure.Abstractions;
-using Fitfuel.Workouts.Application.Common.Interfaces;
+using Fitfuel.Workouts.Application.Abstractions;
 using Fitfuel.Workouts.Domain.Common.Errors;
 
 namespace Fitfuel.Workouts.Application.Services;

@@ -9,8 +9,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        services.AddPersistence();
-        return services;
+        return AddPersistence(services);
     }
     
     private static IServiceCollection AddPersistence(this IServiceCollection services)

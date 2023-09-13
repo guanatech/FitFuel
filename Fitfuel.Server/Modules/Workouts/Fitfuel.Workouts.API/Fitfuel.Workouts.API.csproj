@@ -10,7 +10,6 @@
       <ProjectReference Include="..\Fitfuel.Workouts.Application\Fitfuel.Workouts.Application.csproj" />
       <ProjectReference Include="..\Fitfuel.Workouts.Domain\Fitfuel.Workouts.Domain.csproj" />
       <ProjectReference Include="..\Fitfuel.Workouts.Infrastructure\Fitfuel.Workouts.Infrastructure.csproj" />
-      <ProjectReference Include="..\Fitfuel.Workouts.Shared\Fitfuel.Workouts.Shared.csproj" />
     </ItemGroup>
 
 </Project>

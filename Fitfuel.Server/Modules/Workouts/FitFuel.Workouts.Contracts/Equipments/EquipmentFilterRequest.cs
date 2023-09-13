@@ -4,5 +4,5 @@ namespace FitFuel.Workouts.Contracts.Equipments;
 
 public class EquipmentFilterRequest : BaseFilter
 {
-    public string Name { get; init; }
+    public string? Name { get; init; }
 }

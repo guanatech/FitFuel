@@ -20,7 +20,7 @@ public static class DependencyInjection
     public static IServiceCollection AddPostgres<T>(this IServiceCollection services) where T : DbContext
     {
         services.ConfigureOptions<PostgresOptionsSetup>();
-        var databaseOptions = services.BuildServiceProvider().GetRequiredService<IOptions<PostgresOptions>>()!.Value;
+        var databaseOptions = services.BuildServiceProvider().GetRequiredService<IOptions<PostgresOptions>>().Value;
         services.AddDbContext<T>(options =>
         {
             options.UseNpgsql(databaseOptions.ConnectionString, npSqlServerAction =>

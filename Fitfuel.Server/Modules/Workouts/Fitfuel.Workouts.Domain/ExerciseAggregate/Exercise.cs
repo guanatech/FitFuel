@@ -7,6 +7,29 @@ namespace Fitfuel.Workouts.Domain.ExerciseAggregate;
 
 public class Exercise : AggregateRoot
 {
+    
+    private readonly List<Equipment> _equipments = new ();
+    
+    public string Name { get; private set; }
+    
+    public string Description { get; private set; }
+    
+    public TimeSpan Duration { get; private set; }
+    
+    public ExerciseType ExerciseType { get; private set; }
+    
+    public int Repetition { get; private set; }
+    
+    public Guid WorkoutId { get; private set; }
+    
+    public bool IsCompleted { get; private set; }
+    
+    public Guid EquipmentId { get; set; }
+    
+    public Workout? Workout { get; set; }
+
+    public IReadOnlyList<Equipment> Equipment => _equipments.AsReadOnly();
+
     private Exercise(
         Guid id,
         Guid workoutId,
@@ -26,22 +49,6 @@ public class Exercise : AggregateRoot
         ExerciseType = exerciseType;
         Repetition = repetition;
     }
-
-    private readonly List<Equipment> _equipments = new ();
-    public string Name { get; private set; }
-    public string Description { get; private set; }
-    public TimeSpan Duration { get; private set; }
-    public ExerciseType ExerciseType { get; private set; }
-    public int Repetition { get; private set; }
-    public Guid WorkoutId { get; private set; }
-    
-    public bool IsCompleted { get; private set; }
-    
-    public Guid EquipmentId { get; set; }
-    public Workout? Workout { get; set; }
-    
-    public Equipment? Equipment { get; set; }
-
     public static Exercise Create(
         Guid workoutId,
         Guid equipmentId,
@@ -72,6 +79,7 @@ public class Exercise : AggregateRoot
     
     public void RemoveEquipment(Equipment equipment) =>
         _equipments.Remove(equipment);
+    
     public void AddEquipment(Equipment equipment) =>
         _equipments.Add(equipment);
 }

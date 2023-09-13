@@ -1,5 +1,5 @@
 ﻿using Fitfuel.Shared.Presentation;
-using Fitfuel.Workouts.Application.Common.Interfaces;
+using Fitfuel.Workouts.Application.Abstractions;
 using FitFuel.Workouts.Contracts.Workouts;
 using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +30,7 @@ public class WorkoutController : ApiController
     {
         var workoutResult = await _workoutService.UpdateAsync(response);
         return workoutResult.Match(
-            value => Ok(Mapper.Map<WorkoutResponse>(workoutResult)),
+            value => Ok(Mapper.Map<WorkoutResponse>(value)),
             errors => Problem(errors));
     }
     
@@ -48,11 +48,11 @@ public class WorkoutController : ApiController
     {
         var workoutResult =  await _workoutService.GetByIdAsync(id);
         return workoutResult.Match(
-            value => Ok(Mapper.Map<WorkoutResponse>(workoutResult)),
+            value => Ok(Mapper.Map<WorkoutResponse>(value)),
             errors => Problem(errors));
     }
     
-    [HttpGet]
+    [HttpGet("filter")]
     public async Task<IActionResult> Get([FromQuery] WorkoutFilterRequest filter)
     {
         filter = filter ?? new WorkoutFilterRequest();

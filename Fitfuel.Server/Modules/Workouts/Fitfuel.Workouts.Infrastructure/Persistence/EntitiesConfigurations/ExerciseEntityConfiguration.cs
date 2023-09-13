@@ -21,11 +21,11 @@ public class ExerciseEntityConfiguration : IEntityTypeConfiguration<Exercise>
             .HasOne(x => x.Workout)
             .WithMany(x => x.Exercises)
             .HasForeignKey(x => x.WorkoutId);
-        
+
         builder
-            .HasOne(x => x.Equipment)
+            .HasMany(x => x.Equipment)
             .WithMany(x => x.Exercises)
-            .HasForeignKey(x => x.EquipmentId);
+            .UsingEntity("ExerciseEquipment");
 
         builder.Property(x => x.Name).HasMaxLength(120).IsRequired();
         

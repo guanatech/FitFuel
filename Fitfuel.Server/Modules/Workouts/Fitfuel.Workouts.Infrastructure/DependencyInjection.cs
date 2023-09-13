@@ -1,4 +1,5 @@
 ﻿using Fitfuel.Shared.Infrastructure.Abstractions;
+using Fitfuel.Shared.Infrastructure.Persistence.Database;
 using Fitfuel.Workouts.Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,15 +9,12 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        services
-            .AddPersistence();
-        
-        return services;
+        return AddPersistence(services);
     }
 
     private static IServiceCollection AddPersistence(this IServiceCollection services)
     {
-        
+        services.AddPostgres<WorkoutsDbContext>();  
         services.AddScoped(typeof(IRepository<>),typeof(WorkoutsRepository<>));
         return services;
     }
