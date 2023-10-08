@@ -42,7 +42,7 @@ public class Workout : Entity
 
         return this;
     }
-
+    
     public Workout CompleteWorkout()
     {
         IsCompleted = true;

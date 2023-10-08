@@ -5,7 +5,7 @@ namespace FitFuel.Workouts.Contracts.WorkoutPlans;
 
 public class WorkoutPlanFilterRequest : BaseFilter
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     
     public Level Level { get; set; }
 }
