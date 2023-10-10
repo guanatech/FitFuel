@@ -1,5 +1,6 @@
 ﻿using Fitfuel.Profiles.Domain.ProfileAggregate.Entities;
 using Fitfuel.Profiles.Domain.ProfileAggregate.Enums;
+using Fitfuel.Profiles.Domain.ProfileAggregate.ValueObjects;
 using Fitfuel.Shared.Entities;
 
 namespace Fitfuel.Profiles.Domain.ProfileAggregate;
@@ -14,11 +15,11 @@ public class Profile : AggregateRoot
     
     public int Age { get; private set; }
     
-    public double Weight { get; private set; }
+    public Weight Weight { get; private set; }
     
-    public int Height { get; private set; }
+    public Height Height { get; private set; }
     
-    public Guid UserId { get; private set; }
+    public Guid UserId { get; init; }
     
     public Level Level { get; private set; }
     
@@ -26,7 +27,7 @@ public class Profile : AggregateRoot
 
     public IReadOnlyList<ProfileAchievement> ProfileAchievements => _profileAchievements;
 
-    private Profile(Guid id, string firstName, string secondName, int age, double weight, int height, 
+    private Profile(Guid id, string firstName, string secondName, int age, Weight weight, Height height, 
         Guid userId, Level level, string mainPurpose) : base(id)
     {
         FirstName = firstName;
@@ -39,7 +40,26 @@ public class Profile : AggregateRoot
         MainPurpose = mainPurpose;
     }
 
-    public static Profile Create(string firstName, string secondName, int age, double weight, int height,
+    public static Profile Create(string firstName, string secondName, int age, Weight weight, Height height,
         Guid userId, Level level, string mainPurpose) => new(Guid.NewGuid(), firstName, secondName,
         age, weight, height, userId, level, mainPurpose);
+
+    public Profile Update(string firstName, string secondName, int age, Weight weight, Height height,
+        Level level, string mainPurpose)
+    {
+        FirstName = firstName;
+        SecondName = secondName;
+        Age = age;
+        Weight = weight;
+        Height = height;
+        Level = level;
+        MainPurpose = mainPurpose;
+
+        return this;
+    }
+    
+    
+#pragma warning disable CS8618 // necessary for EF Core
+    private Profile() { }
+#pragma warning restore CS8618 
 }

@@ -7,7 +7,7 @@ namespace Fitfuel.Workouts.API;
 
 public static class DependencyInjection 
 {
-    public static IServiceCollection AddWorkoutsModule(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddWorkoutsModule(this IServiceCollection services)
     {
         services
             .AddApplication()

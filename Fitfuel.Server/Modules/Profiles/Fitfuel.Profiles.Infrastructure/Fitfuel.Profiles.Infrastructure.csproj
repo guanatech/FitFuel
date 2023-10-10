@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Fitfuel.Profiles.Domain\Fitfuel.Profiles.Domain.csproj" />
-      <ProjectReference Include="..\Fitfuel.Profiles.Shared\Fitfuel.Profiles.Shared.csproj" />
     </ItemGroup>
 
 </Project>

@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Fitfuel.Profiles.Infrastructure.Persistence.EntitiesConfigurations;
+namespace Fitfuel.Profiles.Infrastructure.Persistence.Configurations;
 
-public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
+public class ProfileConfig : IEntityTypeConfiguration<Profile>
 {
     public void Configure(EntityTypeBuilder<Profile> builder)
     {
@@ -15,5 +15,8 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
         builder.Property(p => p.Id)
             .ValueGeneratedNever()
             .IsRequired();
+
+        builder.OwnsOne(p => p.Height);
+        builder.OwnsOne(p => p.Weight);
     }
 }

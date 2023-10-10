@@ -2,13 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Fitfuel.Meals.Infrastructure.Persistence.EntitiesConfigurations;
+namespace Fitfuel.Meals.Infrastructure.Persistence.Configurations;
 
-public class MealScheduleEntityConfiguration : IEntityTypeConfiguration<MealSchedule>
+public class MealScheduleEntityConfig : IEntityTypeConfiguration<MealSchedule>
 {
     public void Configure(EntityTypeBuilder<MealSchedule> builder)
     {
-        builder.ToTable("mealSchedules");
+        builder.ToTable("meal_schedules");
 
         builder.HasKey(m => m.Id);
 

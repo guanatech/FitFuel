@@ -16,6 +16,7 @@ public class MealSchedulesController : ApiController
         _mealSchedulesService = mealSchedulesService;
     }
 
+    [HttpGet("{profileId:guid}")]
     public async Task<IActionResult> Get(Guid profileId)
     {
         var result = await _mealSchedulesService.GetMealScheduleAsync(profileId);
@@ -24,6 +25,7 @@ public class MealSchedulesController : ApiController
             errors => Problem(errors));
     }
     
+    [HttpPost]
     public async Task<IActionResult> Create(CreateMealScheduleRequest request)
     {
         var result = await _mealSchedulesService.SetMealScheduleAsync(request);
@@ -32,6 +34,7 @@ public class MealSchedulesController : ApiController
             errors => Problem(errors));
     }
     
+    [HttpPut]
     public async Task<IActionResult> Update(UpdateMealScheduleRequest request)
     {
         var result = await _mealSchedulesService.UpdateMealScheduleAsync(request);

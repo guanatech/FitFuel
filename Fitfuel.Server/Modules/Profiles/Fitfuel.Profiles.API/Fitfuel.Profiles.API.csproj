@@ -6,4 +6,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Fitfuel.Profiles.Application\Fitfuel.Profiles.Application.csproj">
+          <PrivateAssets>all</PrivateAssets>
+      </ProjectReference>
+      <ProjectReference Include="..\Fitfuel.Profiles.Infrastructure\Fitfuel.Profiles.Infrastructure.csproj">
+          <PrivateAssets>all</PrivateAssets>
+      </ProjectReference>
+    </ItemGroup>
+
 </Project>

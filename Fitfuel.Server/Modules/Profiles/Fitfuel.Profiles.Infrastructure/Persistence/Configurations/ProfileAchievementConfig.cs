@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Fitfuel.Profiles.Infrastructure.Persistence.EntitiesConfigurations;
+namespace Fitfuel.Profiles.Infrastructure.Persistence.Configurations;
 
-public class ProfileAchievementEntityConfiguration : IEntityTypeConfiguration<ProfileAchievement>
+public class ProfileAchievementConfig : IEntityTypeConfiguration<ProfileAchievement>
 {
     public void Configure(EntityTypeBuilder<ProfileAchievement> builder)
     {

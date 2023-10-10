@@ -14,6 +14,13 @@ public class Achievement : Entity
         IconUrl = iconUrl;
     }
 
-    public Achievement Create(string name, string iconUrl) => 
+    public static Achievement Create(string name, string iconUrl) => 
         new(Guid.NewGuid(), name, iconUrl);
+
+    public Achievement Update(string name, string iconUrl)
+    {
+        Name = name;
+        IconUrl = iconUrl;
+        return this;
+    }
 }

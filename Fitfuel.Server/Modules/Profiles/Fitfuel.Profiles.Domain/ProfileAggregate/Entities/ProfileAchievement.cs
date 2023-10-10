@@ -9,8 +9,8 @@ public class ProfileAchievement : Entity
     
     public Guid AchievementId { get; init; }
 
-    public Profile Profile { get; set; } = null!;
-    public Achievement Achievement { get; set; } = null!;
+    public Profile Profile { get; init; } = null!;
+    public Achievement Achievement { get; init; } = null!;
 
     public ProfileAchievement(Guid id, Guid profileId, Guid achievementId) : base(id)
     {

@@ -1,5 +1,5 @@
 ﻿using Ardalis.Specification.EntityFrameworkCore;
-using Fitfuel.Shared.Infrastructure.Abstractions;
+using Fitfuel.Shared.Infrastructure.Persistence.Abstractions;
 
 namespace Fitfuel.Meals.Infrastructure.Persistence;
 

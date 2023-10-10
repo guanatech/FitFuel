@@ -36,4 +36,9 @@ public class Meal : AggregateRoot
     public static Meal Create(string name, int calories, TimeSpan cookingTime, 
         Category category, string recipe, Nutrients nutrients, string? imageUrl) =>
         new(Guid.NewGuid(), name, calories, cookingTime, category, recipe, nutrients, imageUrl);
+
+    
+#pragma warning disable CS8618 //necessary for EF Core 
+    private Meal() { }
+#pragma warning restore CS8618 
 }

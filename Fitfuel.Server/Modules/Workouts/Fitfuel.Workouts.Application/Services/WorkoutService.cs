@@ -3,7 +3,7 @@ using FitFuel.Workouts.Contracts.Workouts;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;
 using MapsterMapper;
 using ErrorOr;
-using Fitfuel.Shared.Infrastructure.Abstractions;
+using Fitfuel.Shared.Infrastructure.Persistence.Abstractions;
 using Fitfuel.Workouts.Application.Abstractions;
 using Fitfuel.Workouts.Domain.Common.Errors;
 

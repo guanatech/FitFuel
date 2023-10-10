@@ -3,9 +3,9 @@ using Fitfuel.Meals.Domain.MealAggregate.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Fitfuel.Meals.Infrastructure.Persistence.EntitiesConfigurations;
+namespace Fitfuel.Meals.Infrastructure.Persistence.Configurations;
 
-public class MealEntityConfiguration : IEntityTypeConfiguration<Meal>
+public class MealEntityConfig : IEntityTypeConfiguration<Meal>
 {
     public void Configure(EntityTypeBuilder<Meal> builder)
     {

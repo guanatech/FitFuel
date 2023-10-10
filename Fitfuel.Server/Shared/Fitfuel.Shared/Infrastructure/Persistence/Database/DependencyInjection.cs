@@ -36,7 +36,8 @@ public static class DependencyInjection
                 .EnableSensitiveDataLogging); // to get parameter values - do not in production!
             options.ConfigureWarnings(warningAction =>
             {
-                warningAction.Log(CoreEventId.FirstWithoutOrderByAndFilterWarning, CoreEventId.RowLimitingOperationWithoutOrderByWarning);
+                warningAction.Log(CoreEventId.FirstWithoutOrderByAndFilterWarning, 
+                    CoreEventId.RowLimitingOperationWithoutOrderByWarning);
             });
         });
 

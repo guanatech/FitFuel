@@ -14,8 +14,6 @@ public class ProfilesDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("profiles");
-
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProfilesDbContext).Assembly);
-        base.OnModelCreating(modelBuilder);
     }
 }
