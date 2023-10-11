@@ -59,6 +59,4 @@ public class WorkoutPlanController : ApiController
         var workoutPlans = await _workoutPlanService.GetByFiltersAsync(filter);
         return Ok(workoutPlans);
     }
-    
-    
 }

@@ -13,6 +13,5 @@ public static partial class Errors
         public static Error DuplicateName => Error.Conflict(
             code: "Equipment.DuplicateName",
             description: "Duplicate name");
-        
     }
 }

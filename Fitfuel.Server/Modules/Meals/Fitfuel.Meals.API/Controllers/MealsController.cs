@@ -6,6 +6,7 @@ namespace Fitfuel.Meals.API.Controllers;
 [Route("meals")]
 public class MealsController : Controller
 {
+    [HttpGet]
     public IActionResult Get()
     {
         return Ok();

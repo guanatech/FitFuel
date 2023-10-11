@@ -1,14 +1,18 @@
+using Fitfuel.Meals.API;
 using Fitfuel.Notifications.API;
+using Fitfuel.Profiles.API;
 using Fitfuel.Shared;
-using Fitfuel.Workouts.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .AddWorkoutsModule(builder.Configuration)
+    //.AddWorkoutsModule()
     .AddNotificationsModule(builder.Configuration)
-    .AddSharedFramework(builder.Configuration, builder.Host);
+    .AddProfilesModule()
+    .AddMealsModule()
     //.AddAuthModule(builder.Configuration)
+    .AddSharedFramework(builder.Configuration, builder.Host);
+    
 
 var app = builder.Build();
 {

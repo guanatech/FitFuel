@@ -1,4 +1,4 @@
-﻿using Fitfuel.Shared.Infrastructure.Abstractions;
+﻿using Fitfuel.Shared.Infrastructure.Persistence.Abstractions;
 using Fitfuel.Shared.Infrastructure.Persistence.Database;
 using Fitfuel.Workouts.Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;

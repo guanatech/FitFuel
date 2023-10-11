@@ -1,4 +1,4 @@
-﻿using Fitfuel.Shared.Infrastructure.Abstractions;
+﻿using Fitfuel.Shared.Infrastructure.Persistence.Abstractions;
 using Fitfuel.Workouts.Application.Abstractions;
 using Fitfuel.Workouts.Application.Services;
 using Fitfuel.Workouts.Domain.WorkoutPlanAggregate.Entities;

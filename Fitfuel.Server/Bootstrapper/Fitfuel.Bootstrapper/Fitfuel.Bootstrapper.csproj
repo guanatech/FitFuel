@@ -22,7 +22,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Modules\Auth\Fitfuel.Auth.API\Fitfuel.Auth.API.csproj" />
+      <ProjectReference Include="..\..\Modules\Meals\Fitfuel.Meals.API\Fitfuel.Meals.API.csproj" />
       <ProjectReference Include="..\..\Modules\Notifications\Fitfuel.Notifications.API\Fitfuel.Notifications.API.csproj" />
+      <ProjectReference Include="..\..\Modules\Profiles\Fitfuel.Profiles.API\Fitfuel.Profiles.API.csproj" />
       <ProjectReference Include="..\..\Modules\Workouts\Fitfuel.Workouts.API\Fitfuel.Workouts.API.csproj" />
     </ItemGroup>
 

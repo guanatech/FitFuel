@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Text.Json.Serialization;
 using Fitfuel.Shared.Infrastructure;
 using Mapster;
 using MapsterMapper;
@@ -19,7 +20,11 @@ public static class DependencyInjection
     public static IServiceCollection AddSharedFramework(this IServiceCollection services, IConfiguration configuration,
         IHostBuilder host)
     {
-        services.AddControllers();
+        services.AddControllers()
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
         services.AddEndpointsApiExplorer();
 
         services.AddMappings();
