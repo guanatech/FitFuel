@@ -1,6 +1,4 @@
-﻿using Fitfuel.Profiles.Domain.ProfileAggregate.Enums;
-
-namespace Fitfuel.Profiles.Contracts.Profiles;
+﻿namespace Fitfuel.Profiles.Contracts.Profiles;
 
 public record UpdateProfileRequest(
     string FirstName, 
@@ -8,8 +6,8 @@ public record UpdateProfileRequest(
     int Age,
     double Weight,
     int Height,
-    WeightUnit WeightUnit,
-    HeightUnit HeightUnit,
+    string WeightUnit,
+    string HeightUnit,
     string Level,
     string MainPurpose
     );

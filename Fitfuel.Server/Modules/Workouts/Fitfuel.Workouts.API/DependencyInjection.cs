@@ -1,6 +1,5 @@
 ﻿using Fitfuel.Workouts.Application;
 using Fitfuel.Workouts.Infrastructure;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Fitfuel.Workouts.API;

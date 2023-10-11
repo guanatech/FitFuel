@@ -1,7 +1,9 @@
-﻿using Fitfuel.Profiles.Domain.ProfileAggregate.Entities;
+﻿using Fitfuel.Profiles.Domain.Common.Errors;
+using Fitfuel.Profiles.Domain.ProfileAggregate.Entities;
 using Fitfuel.Profiles.Domain.ProfileAggregate.Enums;
 using Fitfuel.Profiles.Domain.ProfileAggregate.ValueObjects;
 using Fitfuel.Shared.Entities;
+using ErrorOr;
 
 namespace Fitfuel.Profiles.Domain.ProfileAggregate;
 
@@ -40,19 +42,30 @@ public class Profile : AggregateRoot
         MainPurpose = mainPurpose;
     }
 
-    public static Profile Create(string firstName, string secondName, int age, Weight weight, Height height,
-        Guid userId, Level level, string mainPurpose) => new(Guid.NewGuid(), firstName, secondName,
-        age, weight, height, userId, level, mainPurpose);
-
-    public Profile Update(string firstName, string secondName, int age, Weight weight, Height height,
-        Level level, string mainPurpose)
+    public static ErrorOr<Profile> Create(string firstName, string secondName, int age, Weight weight, Height height,
+        Guid userId, string level, string mainPurpose)
     {
+        if (!Enum.TryParse<Level>(level, true, out var profileLevel))
+            return Errors.Profile.IncorrectLevelValue;
+        
+        var profile = new Profile(Guid.NewGuid(), firstName, secondName,
+            age, weight, height, userId, profileLevel, mainPurpose);
+
+        return profile;
+    }
+
+    public ErrorOr<Profile> Update(string firstName, string secondName, int age, Weight weight, Height height,
+        string level, string mainPurpose)
+    {
+        if (!Enum.TryParse<Level>(level, true, out var profileLevel))
+            return Errors.Profile.IncorrectLevelValue;
+        
         FirstName = firstName;
         SecondName = secondName;
         Age = age;
         Weight = weight;
         Height = height;
-        Level = level;
+        Level = profileLevel;
         MainPurpose = mainPurpose;
 
         return this;

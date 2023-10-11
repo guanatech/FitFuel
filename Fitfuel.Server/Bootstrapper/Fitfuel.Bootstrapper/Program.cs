@@ -2,7 +2,6 @@ using Fitfuel.Meals.API;
 using Fitfuel.Notifications.API;
 using Fitfuel.Profiles.API;
 using Fitfuel.Shared;
-using Fitfuel.Workouts.API;
 
 var builder = WebApplication.CreateBuilder(args);
 

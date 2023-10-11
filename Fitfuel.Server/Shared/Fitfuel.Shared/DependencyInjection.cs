@@ -20,11 +20,11 @@ public static class DependencyInjection
     public static IServiceCollection AddSharedFramework(this IServiceCollection services, IConfiguration configuration,
         IHostBuilder host)
     {
-        services.AddControllers();
-            /*.AddJsonOptions(options =>
+        services.AddControllers()
+            .AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-            });*/
+            });
         services.AddEndpointsApiExplorer();
 
         services.AddMappings();

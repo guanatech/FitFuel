@@ -24,11 +24,19 @@ public class ProfilesService : IProfilesService
         if (profile is null) return Errors.Profile.NotFound;
 
         var weight = Weight.Create(request.WeightUnit, request.Weight);
-        var height = Height.Create(request.HeightUnit, request.Height);
-        var updatedProfile = profile.Update(request.FirstName, request.SecondName, request.Age,
-        weight, height, (Level)Enum.Parse(typeof(Level), request.Level), request.MainPurpose);
+        if (weight.IsError)
+            return weight.FirstError;
         
-        await _profileRepository.UpdateAsync(updatedProfile);
+        var height = Height.Create(request.HeightUnit, request.Height);
+        if (height.IsError)
+            return height.FirstError;
+        
+        var updatedProfile = profile.Update(request.FirstName, request.SecondName, request.Age,
+        weight.Value, height.Value, request.Level, request.MainPurpose);
+        if (updatedProfile.IsError)
+            return updatedProfile.FirstError;
+        
+        await _profileRepository.UpdateAsync(updatedProfile.Value);
         return profile;
     }
 
