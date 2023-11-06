@@ -15,7 +15,16 @@ public class ProfileController : ApiController
     {
         _profileService = profileService;
     }
-
+    
+    [HttpGet("{profileId:guid}/achievements")]
+    public async Task<IActionResult> GetProfileAchievements(Guid profileId)
+    {
+        var result = await _profileService.GetProfileAchievementsAsync(profileId);
+        return result.Match(
+            achievements => Ok(achievements),
+            errors => Problem(errors));
+    }
+    
     [HttpPut("{profileId:guid}")]
     public async Task<IActionResult> UpdateProfile(Guid profileId, UpdateProfileRequest request)
     {

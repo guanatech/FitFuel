@@ -19,7 +19,8 @@ public class AchievementsService : IAchievementsService
 
     public async Task<ErrorOr<Achievement>> CreateAchievementAsync(CreateAchievementRequest request)
     {
-        if(await _achievementRepository.FirstOrDefaultAsync(new AchievementByNameSpec(request.Name)) is not null)
+        var spec = new AchievementByNameSpec(request.Name);
+        if(await _achievementRepository.FirstOrDefaultAsync(spec) is not null)
             return Errors.Achievement.NameAlreadyExists;
 
         var achievement = Achievement.Create(request.Name, "linkToImage");
