@@ -2,18 +2,19 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Fitfuel.Workouts.Infrastructure.Persistence.EntitiesConfigurations;
+namespace Fitfuel.Workouts.Infrastructure.Persistence.Configs;
 
-public class EquipmentEntityConfiguration : IEntityTypeConfiguration<Equipment>
+public class EquipmentConfig : IEntityTypeConfiguration<Equipment>
 {
     public void Configure(EntityTypeBuilder<Equipment> builder)
     {
-        builder.ToTable("Equipments");
+      
         
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
-            .HasColumnName("Id")
+            .HasColumnName("id")
+            .ValueGeneratedNever()
             .IsRequired();
         
         builder.Property(x => x.Name).HasMaxLength(70).IsRequired();

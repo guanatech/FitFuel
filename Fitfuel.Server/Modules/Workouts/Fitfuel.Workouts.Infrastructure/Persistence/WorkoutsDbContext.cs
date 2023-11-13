@@ -17,7 +17,10 @@ public class WorkoutsDbContext : DbContext
     private DbSet<Equipment> Equipments { get; set; } = null!;
 
     public WorkoutsDbContext(DbContextOptions<WorkoutsDbContext> options) : base(options) { }
-
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseCamelCaseNamingConvention();
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("workouts");
