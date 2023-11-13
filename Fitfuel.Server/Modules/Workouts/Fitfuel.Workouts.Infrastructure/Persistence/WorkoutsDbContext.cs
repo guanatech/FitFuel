@@ -19,7 +19,7 @@ public class WorkoutsDbContext : DbContext
     public WorkoutsDbContext(DbContextOptions<WorkoutsDbContext> options) : base(options) { }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSnakeCaseNamingConvention();
+        => optionsBuilder.UseCamelCaseNamingConvention();
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
