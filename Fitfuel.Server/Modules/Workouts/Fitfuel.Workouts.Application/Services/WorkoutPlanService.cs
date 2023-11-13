@@ -1,6 +1,6 @@
 ﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
 using ErrorOr;
-using Fitfuel.Shared.Infrastructure.Abstractions;
+using Fitfuel.Shared.Infrastructure.Persistence.Abstractions;
 using Fitfuel.Workouts.Application.Abstractions;
 using Fitfuel.Workouts.Application.Specifications.WorkoutPlans;
 using FitFuel.Workouts.Contracts.WorkoutPlans;

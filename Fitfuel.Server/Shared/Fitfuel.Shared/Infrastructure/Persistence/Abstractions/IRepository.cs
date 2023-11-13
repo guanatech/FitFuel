@@ -1,6 +1,6 @@
 ﻿using Ardalis.Specification;
 
-namespace Fitfuel.Shared.Infrastructure.Abstractions;
+namespace Fitfuel.Shared.Infrastructure.Persistence.Abstractions;
 
 /// <inheritdoc/>
 /// Our base repo, dont change it, but you can create a custom repo if required

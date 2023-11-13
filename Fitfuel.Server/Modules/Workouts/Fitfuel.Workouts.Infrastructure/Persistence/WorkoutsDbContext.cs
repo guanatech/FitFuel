@@ -24,8 +24,6 @@ public class WorkoutsDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("workouts");
-        
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(WorkoutsDbContext).Assembly);
-        base.OnModelCreating(modelBuilder);
     }
 }

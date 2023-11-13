@@ -4,7 +4,7 @@ using Fitfuel.Meals.Domain.MealScheduleAggregate;
 using Fitfuel.Meals.Domain.Common.Errors;
 using ErrorOr;
 using Fitfuel.Meals.Application.Specifications.MealSchedules;
-using Fitfuel.Shared.Infrastructure.Abstractions;
+using Fitfuel.Shared.Infrastructure.Persistence.Abstractions;
 
 namespace Fitfuel.Meals.Application.Services;
 

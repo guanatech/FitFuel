@@ -25,15 +25,12 @@ internal sealed class DbContextAppInitializer : IHostedService
         using var scope = _serviceProvider.CreateScope();
         foreach (var dbContextType in dbContextTypes)
         {
-            var dbContext = scope.ServiceProvider.GetService(dbContextType) as DbContext;
-            if (dbContext is null)
+            if (scope.ServiceProvider.GetService(dbContextType) is not DbContext dbContext)
             {
                 continue;
             }
 
             _logger.LogInformation("Running DB context: {Name}", dbContext.GetType().Name);
-            await dbContext.Database.EnsureDeletedAsync(cancellationToken);
-            await dbContext.Database.EnsureCreatedAsync(cancellationToken);
             await dbContext.Database.MigrateAsync(cancellationToken);
         }
     }
