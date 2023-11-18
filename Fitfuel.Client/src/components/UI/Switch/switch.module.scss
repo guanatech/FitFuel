@@ -1,0 +1,100 @@
+@import "../../../scss/variables";
+
+.root {
+  --width: 137px;
+  --height: 47px;
+
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  box-shadow: -1px 15px 15px 5px #0000000d;
+  border-radius: var(--height);
+  cursor: pointer;
+  background: #cacaca33;
+  
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .switch {
+      background: linear-gradient(
+        274.42deg,
+        rgba(0, 128, 128, 0.4) 0%,
+        rgba(0, 255, 163, 0.4) 124.45%
+      );
+    }
+
+    &:checked + .switch::before {
+      background: #fff;
+      box-shadow: -7px 4px 20px 0px #FFFFFF40;
+    }
+
+    &:checked + .switch:before {
+      -webkit-transform: translateX(calc(var(--width) - var(--height)));
+      -ms-transform: translateX(calc(var(--width) - var(--height)));
+      transform: translateX(calc(var(--width) - var(--height)));
+    }
+
+    &:checked ~ .labels::after {
+      opacity: 0;
+    }
+
+    &:checked ~ .labels::before {
+      opacity: 1;
+    }
+  }
+
+  .switch {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--height);
+    transition: all 0.4s ease-in-out;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8.5px;
+      left: 8px;
+      width: 30px;
+      height: 30px;
+      border-radius: calc(var(--height) / 2);
+      background: linear-gradient(274.42deg, #008080 0%, #00ffa3 124.45%);
+      box-shadow: 0px 4px 10px 0px #00ffb240;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  .labels {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-family: sans-serif;
+    transition: all 0.4s ease-in-out;
+
+    &::after {
+      content: attr(switch-off);
+      position: absolute;
+      right: 35px;
+      opacity: 1;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+      color: #fff;
+      transition: all 0.4s ease-in-out;
+    }
+
+    &::before {
+      content: attr(switch-on);
+      position: absolute;
+      left: 35px;
+      opacity: 0;
+      color: #fff;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+}

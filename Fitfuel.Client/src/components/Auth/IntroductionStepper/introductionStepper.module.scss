@@ -1,0 +1,182 @@
+@import "../../../scss/variables";
+
+.root {
+  padding: 50px 90px 0 80px;
+  
+  .title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    line-height: 42.26px;
+  }
+
+  .subtitle {
+    margin-bottom: 70px;
+    font-size: 16px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .usernameStep {
+    .username_label {
+      margin-bottom: 20px;
+    }
+
+    .gender_label {
+      margin-top: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      .input_container {
+        width: 100%;
+        position: relative;
+
+        input {
+          padding-left: 55px;
+        }
+
+        .user_icon {
+          position: absolute;
+          top: 15px;
+          left: 20px;
+
+          z-index: 2;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex: 1;
+        width: 100%;
+        justify-content: space-evenly;
+        margin-top: 10px;
+
+        li {
+          display: inline-block;
+
+          input[type="radio"][id^="cb"] {
+            display: none;
+          }
+
+          label {
+            display: block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+
+            img {
+              transition-duration: 0.2s;
+              transform-origin: 50% 50%;
+              transform: scale(0.9);
+              opacity: 0.5;
+            }
+
+            p {
+              text-align: center;
+              margin-top: 5px;
+            }
+          }
+
+          :checked + label img {
+            transform: scale(1);
+            z-index: -1;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .parametersStep {
+    form {
+      .label {
+        margin-top: 5px;
+        margin-bottom: 12px;
+      }
+      .input_container {
+        width: 350px;
+      }
+    }
+  }
+
+  .levelStep {
+    .level_label {
+      margin-bottom: 25px;
+    }
+
+    .target_label {
+      margin-top: 40px;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex: 1;
+      width: 100%;
+      justify-content: space-evenly;
+      margin-top: 10px;
+
+      li {
+        display: inline-block;
+
+        input[type="radio"][id^="cb"] {
+          display: none;
+        }
+
+        label {
+          display: block;
+          position: relative;
+          
+          cursor: pointer;
+
+          img {
+            transition-duration: 0.2s;
+            transform-origin: 50% 50%;
+            transform: scale(0.9);
+            opacity: 0.5;
+          }
+
+          p {
+            text-align: center;
+            margin-top: 5px;
+          }
+        }
+
+        :checked + label img {
+          transform: scale(1);
+          z-index: -1;
+          opacity: 1;
+        }
+      }
+    }
+
+    .caption_container {
+      width: 100%;
+      .line {
+        margin: auto;
+        border-top: 1px solid #c6c6c666;
+        width: 40%;
+        padding-top: 10px;
+      }
+      .caption {
+        margin: auto;
+        text-align: center;
+        padding-top: 10px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
+  }
+}

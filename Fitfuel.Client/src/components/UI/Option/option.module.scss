@@ -1,0 +1,43 @@
+.root {
+  input {
+    display: none;
+
+    &:checked + span {
+      border-width: 2px;
+      background-color: #2E383E;
+      position: relative;
+      text-align: center;
+    }
+
+    &:checked + span::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      bottom: -2px;
+      left: -2px;
+      right: -2px;
+      background: linear-gradient(274.42deg, #008080 0%, #00ffa3 124.45%);
+      border-radius: 34px;
+      z-index: -1;
+      
+    }
+
+    &:checked + span {
+      opacity: 1;
+    }
+  }
+
+  span {
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    background: #F6F6F61A;
+    border-radius: 20px;
+    box-shadow: -1px 15px 15px 5px #0000001a;
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../../scss/variables";
+.root {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 50px;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 18px;
+  color: #afafaf;
+  border: 1px solid $light-gray;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: -1px 15px 15px 5px #0000001a;
+
+  &::placeholder {
+    color: #afafaf;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type="number"] {
+    appearance: textfield;
+  }
+}
