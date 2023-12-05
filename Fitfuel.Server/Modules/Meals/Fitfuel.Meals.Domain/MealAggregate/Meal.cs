@@ -1,4 +1,6 @@
-﻿using Fitfuel.Meals.Domain.MealAggregate.Enums;
+﻿using ErrorOr;
+using Fitfuel.Meals.Domain.Common.Errors;
+using Fitfuel.Meals.Domain.MealAggregate.Enums;
 using Fitfuel.Meals.Domain.MealAggregate.ValueObjects;
 using Fitfuel.Shared.Entities;
 
@@ -32,10 +34,17 @@ public class Meal : AggregateRoot
         ImageUrl = imageUrl;
         Nutrients = nutrients;
     }
-    
-    public static Meal Create(string name, int calories, TimeSpan cookingTime, 
-        Category category, string recipe, Nutrients nutrients, string? imageUrl) =>
-        new(Guid.NewGuid(), name, calories, cookingTime, category, recipe, nutrients, imageUrl);
+
+    public static ErrorOr<Meal> Create(string name, int calories, TimeSpan cookingTime,
+        string category, string recipe, Nutrients nutrients, string? imageUrl)
+    {
+        if (!Enum.TryParse<Category>(category, true, out var mealCategory))
+            return Errors.Meal.IncorrectMealCategory;
+        
+        var meal = new Meal(Guid.NewGuid(), name, calories, cookingTime, mealCategory, recipe, nutrients, imageUrl);
+        return meal;
+    }
+        
 
     
 #pragma warning disable CS8618 //necessary for EF Core 

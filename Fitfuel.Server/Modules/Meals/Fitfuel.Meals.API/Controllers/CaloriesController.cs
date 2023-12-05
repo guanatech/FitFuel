@@ -9,26 +9,26 @@ namespace Fitfuel.Meals.API.Controllers;
 [Route("calculator")]
 public class CaloriesController : ApiController
 {
-    private readonly ICaloriesCalculator _caloriesCalculator;
+    private readonly ICaloriesService _caloriesService;
     
-    protected CaloriesController(IMapper mapper, ICaloriesCalculator caloriesCalculator) : base(mapper)
+    protected CaloriesController(IMapper mapper, ICaloriesService caloriesService) : base(mapper)
     {
-        _caloriesCalculator = caloriesCalculator;
+        _caloriesService = caloriesService;
     }
     
    [HttpGet("calories")]
-   public IActionResult CalculateDailyCount([FromQuery]CalculateDailyCaloriesRequest request)
+   public IActionResult CalculateDailyCount([FromQuery]GetDailyCaloriesRequest request)
     {
-        var result = _caloriesCalculator.GetDailyCaloriesCount(request);
+        var result = _caloriesService.GetDailyCaloriesCount(request);
         return result.Match(
             dailyCount => Ok(dailyCount),
             errors => Problem(errors));
     }
     
    [HttpGet("nutrients")] 
-   public IActionResult CalculateDailyNutrients([FromQuery]CalculateDailyNutrientsRequest request)
+   public IActionResult CalculateDailyNutrients([FromQuery]GetDailyNutrientsRequest request)
     {
-        var result = _caloriesCalculator.GetDailyNutrientsCount(request);
+        var result = _caloriesService.GetDailyNutrientsCount(request);
         return result.Match(
             nutrients => Ok(nutrients),
             errors => Problem(errors));

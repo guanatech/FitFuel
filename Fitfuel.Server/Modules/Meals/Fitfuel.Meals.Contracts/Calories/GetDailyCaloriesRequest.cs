@@ -1,6 +1,6 @@
 ﻿namespace Fitfuel.Meals.Contracts.Calories;
 
-public record CalculateDailyCaloriesRequest(
+public record GetDailyCaloriesRequest(
     int Height, 
     double Weight, 
     int Age, 

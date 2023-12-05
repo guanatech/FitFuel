@@ -1,5 +1,5 @@
 ﻿namespace Fitfuel.Meals.Contracts.Calories;
 
-public record CalculateDailyNutrientsRequest(
+public record GetDailyNutrientsRequest(
     double DailyCalorieCount, 
     string TrainingTarget);
