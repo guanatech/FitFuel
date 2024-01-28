@@ -28,6 +28,10 @@ public class WorkoutsDbContext : DbContext
         NpgsqlConnection.GlobalTypeMapper.MapEnum<Level>();
     }
 
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseCamelCaseNamingConvention();
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("workouts");

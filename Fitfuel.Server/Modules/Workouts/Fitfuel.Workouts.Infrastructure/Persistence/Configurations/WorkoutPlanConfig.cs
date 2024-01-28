@@ -1,19 +1,20 @@
 ﻿using Fitfuel.Workouts.Domain.WorkoutPlanAggregate;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Fitfuel.Workouts.Infrastructure.Persistence.EntitiesConfigurations;
+namespace Fitfuel.Workouts.Infrastructure.Persistence.Configs;
 
-public class WorkoutPlanEntityConfiguration : IEntityTypeConfiguration<WorkoutPlan>
+public class WorkoutPlanConfig : IEntityTypeConfiguration<WorkoutPlan>
 {
     public void Configure(EntityTypeBuilder<WorkoutPlan> builder)
     {
-        builder.ToTable("WorkoutPlans");
-        
+   
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
-            .HasColumnName("Id");
+            .HasColumnName("id")
+            .ValueGeneratedNever();
 
         builder.Property(x => x.Name)
             .HasMaxLength(100)

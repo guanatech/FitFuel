@@ -55,11 +55,11 @@ public class WorkoutPlanService : IWorkoutPlanService
         if (await _workoutPlanRepository.GetByIdAsync(request.Id) is not { } workoutPlan)
             return Errors.WorkoutPlan.NotFound;
 
-        workoutPlan.Update(request.Name, request.Level);
+        var updated = workoutPlan.Update(request.Name, request.Level);
 
-        await _workoutPlanRepository.UpdateAsync(workoutPlan);
+        await _workoutPlanRepository.UpdateAsync(updated);
 
-        return workoutPlan;
+        return updated;
 
     }
 

@@ -20,6 +20,8 @@ public class MealsDbContext : DbContext
         NpgsqlConnection.GlobalTypeMapper.MapEnum<TrainingTarget>();
     }
     
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseCamelCaseNamingConvention();
     public MealsDbContext(DbContextOptions<MealsDbContext> options) : base(options) {}
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
