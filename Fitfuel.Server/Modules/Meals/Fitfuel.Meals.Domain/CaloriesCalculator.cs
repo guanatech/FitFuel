@@ -3,7 +3,7 @@ using Fitfuel.Meals.Domain.Common.Enums;
 using Fitfuel.Meals.Domain.Common.Errors;
 using Fitfuel.Meals.Domain.MealAggregate.ValueObjects;
 
-namespace Fitfuel.Meals.Domain.DomainServices;
+namespace Fitfuel.Meals.Domain;
 
 public class CaloriesCalculator
 {
@@ -74,7 +74,7 @@ public class CaloriesCalculator
             ActivityRate.Middle => 1.55,
             ActivityRate.High => 1.7,
             ActivityRate.Extreme => 1.9,
-            _ => throw new ArgumentOutOfRangeException(nameof(rate), "Argument rate is not defined")
+            _ => throw new ArgumentOutOfRangeException(nameof(rateStr), "Argument rate is not defined")
         };
     }
 }

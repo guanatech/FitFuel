@@ -1,7 +1,7 @@
 ﻿using ErrorOr;
 using Fitfuel.Meals.Application.Common.Interfaces;
 using Fitfuel.Meals.Contracts.Calories;
-using Fitfuel.Meals.Domain.DomainServices;
+using Fitfuel.Meals.Domain;
 using Fitfuel.Meals.Domain.MealAggregate.ValueObjects;
 
 namespace Fitfuel.Meals.Application.Services;

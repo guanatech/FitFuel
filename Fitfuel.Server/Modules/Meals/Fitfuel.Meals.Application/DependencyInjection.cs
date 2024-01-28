@@ -1,6 +1,6 @@
 ﻿using Fitfuel.Meals.Application.Common.Interfaces;
 using Fitfuel.Meals.Application.Services;
-using Fitfuel.Meals.Domain.DomainServices;
+using Fitfuel.Meals.Domain;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Fitfuel.Meals.Application;
