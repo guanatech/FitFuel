@@ -3,7 +3,7 @@ using Fitfuel.Profiles.Application.Common.Interfaces;
 using Fitfuel.Profiles.Contracts.Profiles;
 using Fitfuel.Profiles.Domain.Common.Errors;
 using Fitfuel.Profiles.Domain.ProfileAggregate;
-using Fitfuel.Profiles.Domain.ProfileAggregate.Enums;
+using Fitfuel.Profiles.Domain.ProfileAggregate.Entities;
 using Fitfuel.Profiles.Domain.ProfileAggregate.ValueObjects;
 using Fitfuel.Shared.Infrastructure.Persistence.Abstractions;
 
@@ -18,6 +18,15 @@ public class ProfilesService : IProfilesService
         _profileRepository = profileRepository;
     }
 
+    public async Task<ErrorOr<List<ProfileAchievement>>> GetProfileAchievementsAsync(Guid profileId)
+    {
+        var profile = await _profileRepository.GetByIdAsync(profileId);
+        if (profile is null)
+            return Errors.Profile.NotFound;
+
+        return profile.ProfileAchievements.ToList();
+    } 
+    
     public async Task<ErrorOr<Profile>> UpdateProfileAsync(Guid id, UpdateProfileRequest request)
     {
         var profile = await _profileRepository.GetByIdAsync(id);

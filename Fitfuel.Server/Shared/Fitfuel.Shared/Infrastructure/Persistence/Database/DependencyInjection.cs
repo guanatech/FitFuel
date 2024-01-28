@@ -23,10 +23,10 @@ public static class DependencyInjection
         var databaseOptions = services.BuildServiceProvider().GetRequiredService<IOptions<PostgresOptions>>().Value;
         services.AddDbContext<T>(options =>
         {
-            options.UseNpgsql(databaseOptions.ConnectionString, npSqlServerAction =>
+            options.UseNpgsql(databaseOptions.ConnectionString, npgSqlServerAction =>
             {
-                npSqlServerAction.EnableRetryOnFailure(maxRetryCount: databaseOptions.MaxRetryCount);
-                npSqlServerAction.CommandTimeout(databaseOptions.CommandTimeOut);
+                npgSqlServerAction.EnableRetryOnFailure(maxRetryCount: databaseOptions.MaxRetryCount);
+                npgSqlServerAction.CommandTimeout(databaseOptions.CommandTimeOut);
             });
             options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 

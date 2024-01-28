@@ -82,7 +82,7 @@ namespace Fitfuel.Meals.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Fitfuel.Meals.Domain.MealAggregate.Meal", b =>
                 {
-                    b.OwnsOne("Fitfuel.Meals.Domain.MealAggregate.ValueObjects.Nutrients", "Nutrients", b1 =>
+                    b.OwnsOne("Fitfuel.Meals.Domain.MealAggregate.Meal.Nutrients#Fitfuel.Meals.Domain.MealAggregate.ValueObjects.Nutrients", "Nutrients", b1 =>
                         {
                             b1.Property<Guid>("MealId")
                                 .HasColumnType("uuid");
