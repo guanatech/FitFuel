@@ -30,7 +30,7 @@ const steps = [
 
 const IntroductionStepper = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [complete, setComplete] = useState(false);
+  const [_, setComplete] = useState(false);
 
   return (
     <div className={styles.root}>

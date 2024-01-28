@@ -1,0 +1,66 @@
+@import "../../../scss/variables";
+
+.root {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+
+  .menu_logo {
+    display: flex;
+    align-items: center;
+    margin: 15px 25px 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+
+    p {
+      margin-left: 25px;
+      font-family: "Bruno Ace", sans-serif;
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+  }
+
+  .section {
+    margin: 8px 5px 0 0;
+    background-color: $background;
+    border-radius: 10px;
+
+    &:last-of-type {
+      height: 100%;
+    }
+
+    li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 35px 30px;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+        p {
+          color: $spring-green;
+        }
+      }
+
+      cursor: pointer;
+
+      img {
+        margin-right: 40px;
+        //opacity: 20%;
+      }
+
+      p {
+        transition: 0.3s;
+        font-size: 16px;
+        color: $light-gray;
+      }
+    }
+  }
+}

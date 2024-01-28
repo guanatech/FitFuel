@@ -19,7 +19,7 @@ const UsernameStep = () => {
         <h3 className={styles.gender_label}>Ваш пол?</h3>
         <ul>
           <li>
-            <input type="radio" name="gender" id="cb" value="Male"/>
+            <input type="radio" name="gender" id="cb" value="Male" checked/>
             <label htmlFor="cb">
               <img src="/img/male.svg" width={150} />
               <p>Мужчина</p>
