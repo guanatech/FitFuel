@@ -7,6 +7,9 @@ public class AuthDbContext : IdentityDbContext
 {
     public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options) { }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSnakeCaseNamingConvention();
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("auth");

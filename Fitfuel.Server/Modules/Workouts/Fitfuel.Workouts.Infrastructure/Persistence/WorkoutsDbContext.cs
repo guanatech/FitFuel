@@ -11,6 +11,8 @@ namespace Fitfuel.Workouts.Infrastructure.Persistence;
 
 public class WorkoutsDbContext : DbContext
 {
+    public WorkoutsDbContext(DbContextOptions<WorkoutsDbContext> options) : base(options) { }
+    
     private DbSet<Workout> Workouts { get; set; } = null!;
 
     private DbSet<Exercise> Exercises { get; set; } = null!;
@@ -18,19 +20,16 @@ public class WorkoutsDbContext : DbContext
     private DbSet<WorkoutPlan> WorkoutPlans { get; set; } = null!;
 
     private DbSet<Equipment> Equipments { get; set; } = null!;
-
-    public WorkoutsDbContext(DbContextOptions<WorkoutsDbContext> options) : base(options) { }
-
+    
     [Obsolete]
     static WorkoutsDbContext()
     {
         NpgsqlConnection.GlobalTypeMapper.MapEnum<ExerciseType>();
         NpgsqlConnection.GlobalTypeMapper.MapEnum<Level>();
     }
-
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseCamelCaseNamingConvention();
+        => optionsBuilder.UseSnakeCaseNamingConvention();
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

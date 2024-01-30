@@ -8,11 +8,11 @@ namespace Fitfuel.Profiles.Infrastructure.Persistence;
 
 public class ProfilesDbContext : DbContext
 {
+    public ProfilesDbContext(DbContextOptions<ProfilesDbContext> options) : base(options) { }
+    
     public DbSet<Profile> Profiles { get; set; } = null!;
     public DbSet<Achievement> Achievements { get; set; } = null!;
-
-    public ProfilesDbContext(DbContextOptions<ProfilesDbContext> options) : base(options) { }
-
+    
     [Obsolete]
     static ProfilesDbContext()
     {
@@ -20,6 +20,9 @@ public class ProfilesDbContext : DbContext
         NpgsqlConnection.GlobalTypeMapper.MapEnum<WeightUnit>();
         NpgsqlConnection.GlobalTypeMapper.MapEnum<Level>();
     }
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSnakeCaseNamingConvention();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

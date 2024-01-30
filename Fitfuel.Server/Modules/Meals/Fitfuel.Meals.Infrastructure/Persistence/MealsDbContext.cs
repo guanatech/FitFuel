@@ -9,6 +9,8 @@ namespace Fitfuel.Meals.Infrastructure.Persistence;
 
 public class MealsDbContext : DbContext
 {
+    public MealsDbContext(DbContextOptions<MealsDbContext> options) : base(options) {}
+    
     public DbSet<Meal> Meals { get; set; } = null!;
     public DbSet<MealSchedule> MealSchedules { get; set; } = null!;
 
@@ -21,8 +23,7 @@ public class MealsDbContext : DbContext
     }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseCamelCaseNamingConvention();
-    public MealsDbContext(DbContextOptions<MealsDbContext> options) : base(options) {}
+        => optionsBuilder.UseSnakeCaseNamingConvention();
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
