@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Fitfuel.Auth.Domain\Fitfuel.Auth.Domain.csproj" />
       <ProjectReference Include="..\Fitfuel.Auth.Shared\Fitfuel.Auth.Shared.csproj" />
     </ItemGroup>
 

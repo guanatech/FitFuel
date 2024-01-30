@@ -16,7 +16,7 @@ internal sealed class DbContextAppInitializer : IHostedService
         _logger = logger;
     }
         
-    public async Task StartAsync(CancellationToken cancellationToken)
+    public async Task StartAsync(CancellationToken cancellationToken)   
     {
         var dbContextTypes = AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(x => x.GetTypes())
@@ -25,15 +25,12 @@ internal sealed class DbContextAppInitializer : IHostedService
         using var scope = _serviceProvider.CreateScope();
         foreach (var dbContextType in dbContextTypes)
         {
-            var dbContext = scope.ServiceProvider.GetService(dbContextType) as DbContext;
-            if (dbContext is null)
+            if (scope.ServiceProvider.GetService(dbContextType) is not DbContext dbContext)
             {
                 continue;
             }
 
-            _logger.LogInformation($"Running DB context: {dbContext.GetType().Name}");
-            await dbContext.Database.EnsureCreatedAsync(cancellationToken);
-            await dbContext.Database.EnsureCreatedAsync(cancellationToken);
+            _logger.LogInformation("Running DB context: {Name}", dbContext.GetType().Name);
             await dbContext.Database.MigrateAsync(cancellationToken);
         }
     }

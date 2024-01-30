@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Fitfuel.Meals.Application\Fitfuel.Meals.Application.csproj" />
       <ProjectReference Include="..\Fitfuel.Meals.Domain\Fitfuel.Meals.Domain.csproj" />
-      <ProjectReference Include="..\Fitfuel.Meals.Shared\Fitfuel.Meals.Shared.csproj" />
     </ItemGroup>
 
 </Project>

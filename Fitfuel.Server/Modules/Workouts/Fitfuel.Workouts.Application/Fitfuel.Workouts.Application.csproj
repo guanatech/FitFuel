@@ -7,12 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FitFuel.Workouts.Contracts\FitFuel.Workouts.Contracts.csproj" />
       <ProjectReference Include="..\Fitfuel.Workouts.Domain\Fitfuel.Workouts.Domain.csproj" />
-      <ProjectReference Include="..\Fitfuel.Workouts.Shared\Fitfuel.Workouts.Shared.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Common\" />
     </ItemGroup>
 
 </Project>

@@ -4,14 +4,16 @@ namespace Fitfuel.Shared.Infrastructure.Persistence.Specifications.Helpers;
 
 public static class PaginationHelper
 {
-    public static int DefaultPage => 1;
-    public static int DefaultPageSize => 10;
+    private const int DefaultPage = 1;
+    
+    private const int DefaultPageSize = 10;
 
-    public static int CalculateTake(int pageSize)
+    private static int CalculateTake(int pageSize)
     {
         return pageSize <= 0 ? DefaultPageSize : pageSize;
     }
-    public static int CalculateSkip(int pageSize, int page)
+
+    private static int CalculateSkip(int pageSize, int page)
     {
         page = page <= 0 ? DefaultPage : page;
 
